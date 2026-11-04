@@ -14,8 +14,9 @@ import { technicalQA } from "./steps/qa.js";
 const HELP = `NomadGuard creative operator
 
 Usage:
-  npm start -- [--brief brief.json] [--provider fal|mock] [--no-creative-qa] [--max-regens N]
+  npm start -- [--brief brief.json] [--provider fal|mock] [--plan-only] [--no-creative-qa] [--max-regens N]
   npm run cli -- resume <jobId> [--provider fal|mock]
+  npm run cli -- reassemble <jobId>     re-edit + re-QA the existing render (no new render cost)
   npm run cli -- status <jobId>
   npm run cli -- list
   npm run cli -- qa <file.mp4>`;
@@ -46,6 +47,7 @@ async function main() {
       provider: { type: "string" },
       "no-creative-qa": { type: "boolean", default: false },
       "max-regens": { type: "string" },
+      "plan-only": { type: "boolean", default: false },
       help: { type: "boolean", short: "h" },
     },
   });
@@ -59,6 +61,7 @@ async function main() {
     provider: makeProvider(provider, store),
     options: {
       creativeQA: !values["no-creative-qa"],
+      ...(values["plan-only"] ? { stopAt: "GENERATING" as const } : {}),
       ...(values["max-regens"] !== undefined ? { maxRegenerations: Number(values["max-regens"]) } : {}),
     },
   });
@@ -77,6 +80,18 @@ async function main() {
       const job = await store.load(arg);
       const done = await runJob(job, deps(values.provider ?? job.provider));
       return finish(done);
+    }
+    case "reassemble": {
+      // Editing changes (captions, end card) shouldn't cost a new render: reuse generated footage.
+      if (!arg) throw new Error("reassemble needs a job id");
+      const job = await store.load(arg);
+      if (!job.outputs.generated) throw new Error("job has no generated footage yet; use resume");
+      job.outputs.final = undefined;
+      job.error = undefined;
+      job.status = "ASSEMBLING";
+      job.history.push({ status: "ASSEMBLING", at: new Date().toISOString(), note: "reassemble" });
+      await store.save(job);
+      return finish(await runJob(job, deps(job.provider)));
     }
     case "status": {
       if (!arg) throw new Error("status needs a job id");

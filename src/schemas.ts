@@ -56,7 +56,9 @@ export const SceneSchema = z.object({
   on_screen_text: z
     .string()
     .describe("Short overlay text burned in during editing (max ~6 words), or empty string for none"),
-  video_prompt: z.string().describe("Shot-specific prompt for the video model; no on-screen text or logos"),
+  video_prompt: z
+    .string()
+    .describe("Compact shot prompt (max 400 chars): short identity tag + action + setting + camera + light. No text or logos"),
 });
 export type Scene = z.infer<typeof SceneSchema>;
 
@@ -78,9 +80,12 @@ export const StoryboardSchema = z.object({
 });
 export type Storyboard = z.infer<typeof StoryboardSchema>;
 
+/** Kling multi-shot rejects shot prompts over 512 chars (fal 422). Leave room for the builder's realism suffix. */
+export const MAX_SHOT_PROMPT_CHARS = 430;
+
 /** Generated footage must leave room for a ~2s end card inside the 10-15s limit. */
 export const END_CARD_SECONDS = 2;
-export const MAX_GENERATED_SECONDS = 13;
+export const MAX_GENERATED_SECONDS = 12; // providers overshoot slightly (Kling: +0.04s)
 export const MIN_GENERATED_SECONDS = 9;
 
 export function storyboardRules(s: Storyboard): string[] {
@@ -89,6 +94,8 @@ export function storyboardRules(s: Storyboard): string[] {
     errors.push(`Use 3-5 scenes, got ${s.scenes.length}.`);
   s.scenes.forEach((sc, i) => {
     if (sc.duration < 2 || sc.duration > 5) errors.push(`Scene ${i + 1} duration ${sc.duration}s must be 2-5s.`);
+    if (sc.video_prompt.length > MAX_SHOT_PROMPT_CHARS)
+      errors.push(`Scene ${i + 1} video_prompt is ${sc.video_prompt.length} chars; keep it under ${MAX_SHOT_PROMPT_CHARS}.`);
     if (sc.on_screen_text.split(/\s+/).filter(Boolean).length > 7)
       errors.push(`Scene ${i + 1} on_screen_text is too long for a phone screen (max ~6 words).`);
   });

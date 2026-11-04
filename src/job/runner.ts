@@ -29,6 +29,8 @@ export interface RunnerOptions {
   generationTimeoutMs: number;
   creativeQA: boolean;
   backoffBaseMs: number;
+  /** Stop (without failing) when the job reaches this status, e.g. review the storyboard before paying for a render. */
+  stopAt?: JobStatus;
 }
 
 const DEFAULTS: RunnerOptions = {
@@ -58,6 +60,10 @@ export async function runJob(job: Job, deps: RunnerDeps): Promise<Job> {
 
   while (!TERMINAL.includes(job.status)) {
     const step = job.status;
+    if (opts.stopAt === step) {
+      log.info("stopped before step (resume to continue)", { id: job.id, step });
+      return job;
+    }
     for (let attempt = 1; ; attempt++) {
       try {
         const next = await runStep(job, deps, opts);
@@ -70,7 +76,9 @@ export async function runJob(job: Job, deps: RunnerDeps): Promise<Job> {
           await sleep(backoffMs(attempt, opts.backoffBaseMs));
           continue;
         }
-        job.error = { step, message: err.message, retryable: err.retryable, at: new Date().toISOString(), details: err.opts.details };
+        // Some failures are caused by an earlier step (e.g. a bad file fails QA): resume must restart there.
+        const resumeStep = (err.opts.resumeFrom as JobStatus | undefined) ?? step;
+        job.error = { step: resumeStep, message: err.message, retryable: err.retryable, at: new Date().toISOString(), details: err.opts.details };
         await transition(job, "FAILED", deps, err.message);
         return job;
       }
@@ -105,8 +113,9 @@ async function runStep(job: Job, deps: RunnerDeps, o: RunnerOptions): Promise<Jo
     case "STORYBOARDING": {
       if (!job.outputs.storyboard) {
         const strategy = await store.readJson<Strategy>(job, job.outputs.strategy!);
-        const sb = await buildStoryboard(llm, job.brief, strategy);
-        job.outputs.storyboard = await store.writeJson(job, "storyboard.json", sb);
+        const sb = await buildStoryboard(llm, job.brief, strategy, job.generation.qaNotes);
+        const name = job.generation.regenerations ? `storyboard_${job.generation.regenerations + 1}.json` : "storyboard.json";
+        job.outputs.storyboard = await store.writeJson(job, name, sb);
         await store.save(job);
       }
       return "GENERATING";
@@ -119,7 +128,7 @@ async function runStep(job: Job, deps: RunnerDeps, o: RunnerOptions): Promise<Jo
       if (!job.generation.requestId) {
         if (job.generation.submissions >= o.maxSubmissions)
           throw new PipelineError(`video submission budget exhausted (${o.maxSubmissions})`, { retryable: false });
-        const req = buildVideoRequest(sb, job.generation.qaNotes);
+        const req = buildVideoRequest(sb);
         const n = job.generation.submissions + 1;
         job.outputs.videoRequest = await store.writeJson(job, `video_request_${n}.json`, { provider: provider.name, ...req });
         const { requestId } = await provider.generate(req);
@@ -162,7 +171,7 @@ async function runStep(job: Job, deps: RunnerDeps, o: RunnerOptions): Promise<Jo
 
     case "ASSEMBLING": {
       const sb = await store.readJson<Storyboard>(job, job.outputs.storyboard!);
-      await assemble({ input: join(dir, job.outputs.generated!), output: join(dir, "final.mp4"), storyboard: sb, brief: job.brief });
+      await assemble({ input: join(dir, job.outputs.generated!), output: join(dir, "final.mp4"), storyboard: sb, brief: job.brief, maxSeconds: job.brief.format.max_seconds });
       job.outputs.final = "final.mp4";
       await store.save(job);
       return "EVALUATING";
@@ -185,20 +194,28 @@ async function runStep(job: Job, deps: RunnerDeps, o: RunnerOptions): Promise<Jo
       await store.writeJson(job, "qa.json", report);
       await store.save(job);
 
-      if (!technical.valid)
-        throw new PipelineError(`technical QA failed: ${technical.errors.join("; ")}`, { retryable: false, details: technical });
+      if (!technical.valid) {
+        job.outputs.final = undefined; // the file is bad; resume re-assembles it rather than re-checking it
+        throw new PipelineError(`technical QA failed: ${technical.errors.join("; ")}`, {
+          retryable: false,
+          details: technical,
+          resumeFrom: "ASSEMBLING",
+        });
+      }
       if (!creative || creative.pass) return "FINALIZED";
 
       if (job.generation.regenerations < o.maxRegenerations) {
-        // Keep this render's files, and re-render with QA notes injected into the prompts.
+        // Keep this render's files; send the QA findings back through the storyboard step, which rewrites the
+        // shots within all the rules (prompt limits, no generated text). Pasting raw notes into prompts broke both.
         job.generation.regenerations++;
-        job.generation.qaNotes = creative.regeneration_notes || creative.issues.join("; ");
+        job.generation.qaNotes = [...creative.issues.map((i) => `- ${i}`), creative.regeneration_notes].filter(Boolean).join("\n");
+        job.outputs.storyboard = undefined;
         job.outputs.generated = undefined;
         job.outputs.final = undefined;
         await copyFile(final, join(dir, `final_${job.generation.submissions}.mp4`));
         await store.save(job);
         log.warn("creative QA below threshold, regenerating", { id: job.id, average: creative.average, notes: job.generation.qaNotes });
-        return "GENERATING";
+        return "STORYBOARDING";
       }
       return "NEEDS_REVIEW";
     }
