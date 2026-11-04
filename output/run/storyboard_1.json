@@ -1,0 +1,45 @@
+{
+  "title": "POV: The 2 A.M. Gate",
+  "style_bible": {
+    "character": "One woman, about 30, olive skin, dark wavy shoulder-length hair, small gold hoops, slim build, natural minimal makeup.",
+    "wardrobe": "Oversized cream knit sweater, black travel pants and a matte black carry-on at the gate, then a plush white hotel robe at sunrise.",
+    "setting": "An empty, dim airport gate and concourse at night, then a minimal premium hotel room with a floor-to-ceiling window at sunrise.",
+    "color_grade": "Cool teal-blue desaturated night that flips to warm golden-amber morning, with soft contrast and clean blacks.",
+    "lens_and_light": "35-50mm shallow depth of field with soft motivated light: phone glow and sodium overheads at night, low golden sun through the window in the morning."
+  },
+  "scenes": [
+    {
+      "duration": 3,
+      "description": "Hook: tight on her exhausted face at a deserted gate. She lowers her phone and lets out a long exhale, and the carry-on stands at her feet.",
+      "camera": "Handheld close-up with a slight POV sway, drifting down from her face to the carry-on.",
+      "on_screen_text": "Stranded at 2am.",
+      "video_prompt": "Woman, 30, olive skin, dark wavy shoulder-length hair, gold hoops: in a cream knit sweater, she lowers her phone and exhales, exhausted. Black carry-on at her feet, empty rows of seats at a dark airport gate at night, blurred runway lights in the window. Handheld close-up with a slight sway. Cool blue overheads, soft phone glow on her face with the screen angled away."
+    },
+    {
+      "duration": 3,
+      "description": "She glances back at the glowing phone, then her brow relaxes, her shoulders drop and a relieved smile spreads across her face.",
+      "camera": "Slow push-in from medium close-up to close-up, steadier than shot 1.",
+      "on_screen_text": "→ sorted by 2:05.",
+      "video_prompt": "Woman, 30, olive skin, dark wavy shoulder-length hair, gold hoops: in a cream knit sweater, seated at an empty night gate, she looks at the glowing phone and her tense face softens into a relieved smile as her shoulders drop. Phone screen faces away and is out of focus. Slow push-in from medium close-up to close-up. Cool blue ambient light warmed by the phone glow."
+    },
+    {
+      "duration": 2,
+      "description": "She stands and walks away down the empty concourse with her carry-on rolling behind her, calm and unhurried.",
+      "camera": "Low-angle tracking shot from behind, gliding smoothly at her pace.",
+      "on_screen_text": "",
+      "video_prompt": "Woman, 30, olive skin, dark wavy shoulder-length hair, gold hoops: in a cream knit sweater, she walks calmly away down an empty, polished airport concourse at night, pulling a black carry-on. Reflective floor with soft pools of light. Smooth low-angle tracking shot from behind. Cool blue light shifting slightly warmer ahead of her."
+    },
+    {
+      "duration": 4,
+      "description": "Payoff: in a white hotel robe by a sunlit window, she holds a coffee mug, takes in the view and smiles with quiet confidence. Bright sky fills the upper third.",
+      "camera": "Locked-off medium shot with a gentle slow push-in, framed low to leave clean sky above.",
+      "on_screen_text": "No stress. No surprise costs.",
+      "video_prompt": "Woman, 30, olive skin, dark wavy shoulder-length hair, gold hoops: in a plush white hotel robe, she stands by a floor-to-ceiling window holding a white coffee mug and smiles calmly at a city skyline at sunrise. Minimal premium hotel room. Medium shot framed low, bright empty sky in the upper third, gentle slow push-in. Warm golden backlight with a soft glow on her face."
+    }
+  ],
+  "end_card": {
+    "headline": "Because delays happen.",
+    "cta": "Be covered when they do."
+  },
+  "sound": "Shots 1-3: faint airport room tone, a distant PA hum and a soft tired exhale, with a single low muted piano note under the hook. As she smiles, a warm minimal synth-and-piano bed swells. Shot 4: gentle morning ambience with a faint coffee sip and soft birdsong, and the music resolves warmly into the end card."
+}

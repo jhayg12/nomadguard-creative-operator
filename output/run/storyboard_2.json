@@ -1,0 +1,45 @@
+{
+  "title": "POV: The 2 A.M. Gate (Revised)",
+  "style_bible": {
+    "character": "One woman, about 30, long straight dark hair past the shoulders worn down, slim build, natural makeup, small gold hoop earrings.",
+    "wardrobe": "Cream chunky ribbed crewneck sweater, dark trousers and white sneakers in every shot (no heels, no blouse, no robe).",
+    "setting": "A deserted airport gate and concourse at night, then a calm sunlit hotel room the next morning.",
+    "color_grade": "Cool desaturated teal at the airport, shifting to warm golden sunrise tones in the hotel with clean premium contrast.",
+    "lens_and_light": "35-50mm shallow depth of field, soft motivated light: dim fluorescent and screen glow at night, golden side light at sunrise."
+  },
+  "scenes": [
+    {
+      "duration": 3,
+      "description": "Hook: a stranded traveler at a dead-empty gate at 2am lowers the phone from her ear and exhales. Her black carry-on is beside her knee, empty gate seats and runway lights sit behind her, and a departure board glows red but is fully blurred.",
+      "camera": "Handheld medium-close, slight drift, starting close on her face and phone.",
+      "on_screen_text": "Stranded at 2am.",
+      "video_prompt": "Woman, 30, long straight dark hair past shoulders, gold hoops, cream chunky ribbed sweater: seated at a deserted airport gate at night, lowers phone from her ear and exhales, black carry-on beside her knee, empty gate seats, heavily blurred red-glowing departure board behind, no legible text. Handheld medium-close, slight drift. Dim cool fluorescent light, runway lights in dark window."
+    },
+    {
+      "duration": 3,
+      "description": "Over-shoulder insert: she glances at her phone, which shows only a soft out-of-focus glow. Her face relaxes into a relieved smile. The overlay carries the product role.",
+      "camera": "Over-the-shoulder from behind her left shoulder, slow push-in.",
+      "on_screen_text": "Sorted by 2:05. Hotel covered.",
+      "video_prompt": "Woman, 30, long straight dark hair past shoulders, gold hoops, cream chunky ribbed sweater: same night gate, glances down at her phone, tension melts into a small relieved smile. Over-shoulder from behind her left shoulder, phone screen a soft blank glow, out of focus and angled away. Slow push-in. Dim cool gate light, warm screen glow on her cheek."
+    },
+    {
+      "duration": 3,
+      "description": "She walks away down the empty concourse rolling her carry-on. The chunky cream sweater and long dark hair are clearly visible from behind as she moves toward warmer light.",
+      "camera": "Steady low gimbal follow from behind at walking pace.",
+      "on_screen_text": "Delays happen. Costs covered.",
+      "video_prompt": "Woman, 30, long straight dark hair past shoulders, gold hoops, cream chunky ribbed sweater, dark trousers, white sneakers: walks away from camera down an empty night concourse, rolling a black carry-on, hair over the chunky knit clearly visible from behind. Low gimbal follow at walking pace. Glossy floor, cool overhead light warming toward the exit ahead."
+    },
+    {
+      "duration": 4,
+      "description": "Resolution at the hotel the next morning. She wears the same sweater, with the same hair and face. She stands beside a sunlit window, sips from a matte mug and smiles calmly. The window glass sits out of frame, so there are no reflections. A clean wall above her leaves space for the end card.",
+      "camera": "Static medium shot from the side with a gentle slow drift; upper third left empty.",
+      "on_screen_text": "",
+      "video_prompt": "Woman, 30, long straight dark hair past shoulders, gold hoops, cream chunky ribbed sweater (location change: hotel room next morning, same outfit and hair): stands beside a sunlit window, sips from a matte white mug, calm confident smile. Side medium shot, glass out of frame, no reflections. Static, slow drift. Warm golden sunrise light, plain soft-lit wall fills empty upper third."
+    }
+  ],
+  "end_card": {
+    "headline": "Because delays happen. Be covered when they do.",
+    "cta": "Get covered in 2 minutes"
+  },
+  "sound": "Shots 1-2: quiet airport hum, distant PA murmur with no words and a soft tired exhale. A single warm piano note lands on her smile. Shot 3: rolling suitcase wheels, then a minimal modern pulse builds. Shot 4: soft morning birds and a light clink of the mug as the music resolves into a confident, premium sting under the end card."
+}

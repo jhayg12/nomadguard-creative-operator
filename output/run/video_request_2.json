@@ -1,0 +1,24 @@
+{
+  "provider": "fal-kling-v3-pro",
+  "aspectRatio": "9:16",
+  "audio": true,
+  "negativePrompt": "text, letters, words, subtitles, captions, logo, watermark, readable signage, UI, numbers, distorted face, extra fingers, deformed hands, cartoon, CGI, 3d render, low quality, blur, flicker, morphing",
+  "shots": [
+    {
+      "durationSec": 3,
+      "prompt": "Woman, 30, long straight dark hair past shoulders, gold hoops, cream chunky ribbed sweater: seated at a deserted airport gate at night, lowers phone from her ear and exhales, black carry-on beside her knee, empty gate seats, heavily blurred red-glowing departure board behind, no legible text. Handheld medium-close, slight drift. Dim cool fluorescent light, runway lights in dark window. Photorealistic live-action commercial, natural skin texture, film grain."
+    },
+    {
+      "durationSec": 3,
+      "prompt": "Woman, 30, long straight dark hair past shoulders, gold hoops, cream chunky ribbed sweater: same night gate, glances down at her phone, tension melts into a small relieved smile. Over-shoulder from behind her left shoulder, phone screen a soft blank glow, out of focus and angled away. Slow push-in. Dim cool gate light, warm screen glow on her cheek. Photorealistic live-action commercial, natural skin texture, film grain."
+    },
+    {
+      "durationSec": 3,
+      "prompt": "Woman, 30, long straight dark hair past shoulders, gold hoops, cream chunky ribbed sweater, dark trousers, white sneakers: walks away from camera down an empty night concourse, rolling a black carry-on, hair over the chunky knit clearly visible from behind. Low gimbal follow at walking pace. Glossy floor, cool overhead light warming toward the exit ahead. Photorealistic live-action commercial, natural skin texture, film grain."
+    },
+    {
+      "durationSec": 4,
+      "prompt": "Woman, 30, long straight dark hair past shoulders, gold hoops, cream chunky ribbed sweater (location change: hotel room next morning, same outfit and hair): stands beside a sunlit window, sips from a matte white mug, calm confident smile. Side medium shot, glass out of frame, no reflections. Static, slow drift. Warm golden sunrise light, plain soft-lit wall fills empty upper third. Photorealistic live-action commercial, natural skin texture, film grain."
+    }
+  ]
+}

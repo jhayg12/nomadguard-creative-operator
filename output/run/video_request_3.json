@@ -1,0 +1,24 @@
+{
+  "provider": "fal-kling-v3-pro",
+  "aspectRatio": "9:16",
+  "audio": true,
+  "negativePrompt": "text, letters, words, subtitles, captions, logo, watermark, readable signage, UI, numbers, distorted face, extra fingers, deformed hands, cartoon, CGI, 3d render, low quality, blur, flicker, morphing",
+  "shots": [
+    {
+      "durationSec": 3,
+      "prompt": "Woman, 30, dark wavy shoulder-length hair, olive bomber over cream knit: lowers her phone and exhales, visibly tired, shoulders dropping. Empty airport gate at night, seat rows behind, black carry-on handle in frame. Departure board as heavy red bokeh glow, no readable text, extreme defocus. Medium close-up, slight handheld drift. Dim cool overhead light. Photorealistic live-action commercial, natural skin texture, film grain."
+    },
+    {
+      "durationSec": 3,
+      "prompt": "Woman, 30, dark wavy shoulder-length hair, olive bomber over cream knit: glances at phone, cheek lifts into a relieved smile. Same empty night gate, seats blurred. Over-shoulder slight profile, cheek and smile visible; phone angled away, soft dim warm defocused glow, not white, no screen content. Slow push-in. Warm glow on face against cool ambient. Photorealistic live-action commercial, natural skin texture, film grain."
+    },
+    {
+      "durationSec": 2,
+      "prompt": "Woman, 30, dark wavy shoulder-length hair, olive bomber over cream knit: walks away pulling black carry-on, posture light and relaxed. Empty night concourse, glossy floor reflecting soft lights, all signage extreme defocus, no readable text. Low-angle tracking from behind, steady gimbal. Cool ambient with warm pools of light. Photorealistic live-action commercial, natural skin texture, film grain."
+    },
+    {
+      "durationSec": 3,
+      "prompt": "Woman, 30, dark wavy shoulder-length hair (location change: now white hotel robe, hotel room at sunrise): sips coffee from white mug, then gentle closed-mouth smile after sipping. Soft cream wall behind, window glass out of frame. Static medium close-up, clean negative space upper third. Warm golden sunlight from off-frame window. Photorealistic live-action commercial, natural skin texture, film grain."
+    }
+  ]
+}

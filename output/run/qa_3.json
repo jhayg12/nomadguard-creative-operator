@@ -1,0 +1,49 @@
+{
+  "submission": 3,
+  "technical": {
+    "exists": true,
+    "playable": true,
+    "duration": 13.04,
+    "resolution": "1080x1920",
+    "aspect_ratio": "9:16",
+    "has_audio": true,
+    "valid": true,
+    "errors": []
+  },
+  "creative": {
+    "realism": {
+      "score": 7,
+      "reason": "Largely photoreal lighting and textures. Hands on the mug and phone hold up. The phone screen in scene 2 shows pseudo-UI with illegible micro-text, and the hook face has a slightly waxy AI sheen."
+    },
+    "visual_consistency": {
+      "score": 5,
+      "reason": "The jacket, hair length and airport environment carry well through scenes 1–3. In scene 4 the face reads as a different woman: the jaw is narrower, brows are more sculpted, the hair part is different and the skin tone is deeper. That breaks the single-protagonist story."
+    },
+    "brief_adherence": {
+      "score": 5,
+      "reason": "Several storyboard beats are missing. The hook has no carry-on and no phone-lowering action, and the departure board is legible red blocks rather than bokeh. Scene 2 never shows the relieved smile because her face is hidden, and the phone screen faces the camera instead of glowing away. No logo bug appears from scene 2 onward. Signage in scene 3 is fairly sharp. Scene 4 shows eyes-closed sipping, not a settled smile, and the upper-third negative space is weak. The end card text matches."
+    },
+    "hook_strength": {
+      "score": 6,
+      "reason": "'Stranded at 2am.' over a weary face in a night terminal is relatable and readable with sound off. However, the expression is static (eyes closed mid-exhale) and there is no motion or visual jolt to stop the scroll in the first half-second."
+    },
+    "advertising_quality": {
+      "score": 6,
+      "reason": "The problem→fix→comfort arc reads clearly and the warm sunrise payoff feels premium. Branding is weak: NomadGuard appears only on the end card, with no logo mark or bug, and scene 2's emotional turn falls flat without a visible smile. The end card is clean but generic, using plain text on a dark blur."
+    },
+    "issues": [
+      "Identity drift: the scene 4 woman's face differs noticeably from scenes 1–2 (face shape, brows, hair part, skin tone)",
+      "Scene 2: face fully hidden, so the required relieved smile is not visible and the emotional turn is lost",
+      "Scene 2: phone screen faces camera with pseudo-text UI instead of a dim defocused glow",
+      "No logo bug from scene 2 onward; brand absent until the final card",
+      "Hook: no carry-on or phone-lowering action; 'airport gate' relies only on the board and seats",
+      "Departure boards in the hook and scene 3 are semi-legible red blocks rather than fully defocused bokeh",
+      "Scene 4: eyes-closed sip rather than a closed-mouth smile; the end-card plate lacks a clear negative-space area",
+      "End card lacks a logo mark and feels plain for a 'premium' brand"
+    ],
+    "regeneration_notes": "Lock identity with one reference image and repeat the same descriptors in every shot, including scene 4. Describe her as 'same woman: mid-30s, soft oval face, natural full brows, shoulder-length wavy black hair parted slightly left, warm light-brown skin.' Hook: 'medium close-up, she lowers her phone and exhales, black carry-on handle visible in the foreground left, rows of empty gate seats behind, departure board rendered as heavy out-of-focus red bokeh with no readable characters, subtle push-in for motion.' Scene 2: 'over-shoulder three-quarter profile so her cheek and mouth are visible, she breaks into a clear relieved smile, phone tilted away from camera showing only a soft warm glow, screen not visible.' Scene 3: 'shallow depth of field, all signage completely blurred, f/1.8 look.' Scene 4: 'she lowers the mug and settles into a gentle closed-mouth smile with eyes open, more headroom with an empty warm wall in the upper third.' In post, add a NomadGuard logo bug from scene 2 onward and a logo mark on the end card.",
+    "average": 5.8,
+    "pass": false
+  },
+  "evaluatedAt": "2026-11-04T02:05:14.655Z"
+}

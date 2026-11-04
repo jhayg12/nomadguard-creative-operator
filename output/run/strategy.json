@@ -1,0 +1,31 @@
+{
+  "angles": [
+    {
+      "name": "The Shrug",
+      "target_emotion": "Smug relief / confidence",
+      "hook": "Close-up of a departures board flickering to red as a nearby traveler groans, but our traveler just glances up, smiles, and sips her coffee.",
+      "concept": "While delay chaos is implied off-screen, our calm traveler taps her phone once (no visible UI), then is shown relaxing in a premium lounge chair, unbothered. Edited text: 'Flight cancelled? Covered.'",
+      "cta": "Travel unbothered. Get NomadGuard."
+    },
+    {
+      "name": "Split-Screen Fate",
+      "target_emotion": "Contrast-driven anxiety to relief",
+      "hook": "Split screen of the same traveler at the same gate: on the left he slumps over his suitcase and stares at a receipt, on the right he looks calm.",
+      "concept": "Left side: stress, crumpled receipts, rubbing his temples on an airport floor. Right side: he checks into a sleek hotel room and drops onto the bed smiling. Text overlays label them 'Without' and 'With NomadGuard'.",
+      "cta": "Pick your version. Protect your next trip."
+    },
+    {
+      "name": "POV: The 2 A.M. Gate",
+      "target_emotion": "Empathy / 'that's so me' recognition",
+      "hook": "Handheld POV-style shot of an empty, dimly lit gate at night. Our exhausted traveler lowers her phone and exhales, with a carry-on at her feet.",
+      "concept": "The relatable worst moment shifts as her expression softens into a relieved smile. Cut to her in a warm hotel robe by a window at sunrise, coffee in hand. Edited text: 'Stranded at 2am → sorted by 2:05.'",
+      "cta": "Because delays happen. Be covered when they do."
+    }
+  ],
+  "selected_index": 2,
+  "selection": {
+    "why_selected": "It opens on a deeply relatable disruption and pays off with a clear emotional flip. It uses only one traveler, two quiet locations and simple facial beats, so AI video renders it cleanly without crowds, boards or UI.",
+    "audience_insight": "Frequent travelers aged 25-40 have all lived through the stranded late-night gate. The fear isn't the delay itself but being alone with the cost and the hassle, so showing it solved fast hits the real pain.",
+    "why_it_works_on_social": "The POV-style, 'that's so me' opening mirrors native TikTok and Reels content, so it stops the scroll without feeling like an ad. Because the story is told through her face and the before/after setting, it reads with the sound off, and the premium sunrise payoff carries the brand feel."
+  }
+}

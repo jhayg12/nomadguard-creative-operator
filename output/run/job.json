@@ -1,0 +1,162 @@
+{
+  "id": "20261104014527-0e7f2c",
+  "status": "NEEDS_REVIEW",
+  "provider": "fal",
+  "createdAt": "2026-11-04T01:45:27.650Z",
+  "updatedAt": "2026-11-04T02:05:14.658Z",
+  "brief": {
+    "brand": "NomadGuard",
+    "product": "Travel-protection service for frequent travelers: covers flight delays, cancellations and travel disruptions.",
+    "audience": "Frequent travelers aged approximately 25-40.",
+    "problem": [
+      "uncertainty",
+      "stress",
+      "unexpected financial loss"
+    ],
+    "core_message": "Travel with confidence knowing that you are protected when things go wrong.",
+    "brand_feel": [
+      "modern",
+      "premium",
+      "trustworthy",
+      "confident",
+      "visually polished"
+    ],
+    "format": {
+      "platforms": [
+        "Instagram Reels",
+        "TikTok"
+      ],
+      "aspect_ratio": "9:16",
+      "min_seconds": 10,
+      "max_seconds": 15
+    }
+  },
+  "outputs": {
+    "strategy": "strategy.json",
+    "storyboard": "storyboard_3.json",
+    "videoRequest": "video_request_3.json",
+    "generated": "generated_3.mp4",
+    "final": "final.mp4",
+    "qa": "qa_3.json"
+  },
+  "generation": {
+    "submissions": 3,
+    "regenerations": 2,
+    "lastProviderState": "COMPLETED",
+    "qaNotes": "- Departure board text is semi-legible garbled AI text rather than fully blurred\n- Scene 2 phone screen is blown-out blank white with stray UI specks, so it looks unfinished or cheap\n- No relieved smile in scene 2; her face is not visible, so the emotional turn is carried only by text\n- Hotel shot lacks the calm smile, and the window is in frame (against the storyboard)\n- Slight facial drift between hook frames and the hotel shot\n- End card background is dark and muddy, undercutting the premium feel\n- Brand or product never appears before the end card\nHook: open tighter (medium close-up). She lowers the phone with a visibly tired exhale. Render the departure board as heavy bokeh with only red glow and no glyphs (add 'no readable text, extreme defocus' to the prompt). Scene 2: frame from the over-shoulder angle at a slight profile so her cheek and smile are visible. Give the phone screen a soft, dim, warm-tinted defocused glow, not pure white, or composite a simple branded NomadGuard confirmation UI in post. Scene 4: add 'gentle closed-mouth smile after sipping', keep the window glass out of frame, and lock the face with the hook reference image. End card: use a lighter, warmer blurred plate from the sunlit hotel shot instead of a dark grey one. Consider a small NomadGuard logo bug from scene 2 onward."
+  },
+  "history": [
+    {
+      "status": "CREATED",
+      "at": "2026-11-04T01:45:27.650Z"
+    },
+    {
+      "status": "PLANNING",
+      "at": "2026-11-04T01:45:27.655Z"
+    },
+    {
+      "status": "STORYBOARDING",
+      "at": "2026-11-04T01:45:39.830Z"
+    },
+    {
+      "status": "GENERATING",
+      "at": "2026-11-04T01:46:01.588Z"
+    },
+    {
+      "status": "ASSEMBLING",
+      "at": "2026-11-04T01:49:40.604Z"
+    },
+    {
+      "status": "EVALUATING",
+      "at": "2026-11-04T01:49:47.490Z"
+    },
+    {
+      "status": "GENERATING",
+      "at": "2026-11-04T01:50:16.132Z"
+    },
+    {
+      "status": "FAILED",
+      "at": "2026-11-04T01:50:17.470Z",
+      "note": "fal result: Unprocessable Entity (HTTP 422)"
+    },
+    {
+      "status": "FAILED",
+      "at": "2026-11-04T01:51:41.442Z",
+      "note": "manual: migrated to storyboard-based regeneration after fal 422 (prompt > 512 chars); rejected submission #2 was never rendered"
+    },
+    {
+      "status": "STORYBOARDING",
+      "at": "2026-11-04T01:51:41.875Z",
+      "note": "resume"
+    },
+    {
+      "status": "GENERATING",
+      "at": "2026-11-04T01:52:15.349Z"
+    },
+    {
+      "status": "ASSEMBLING",
+      "at": "2026-11-04T01:55:28.642Z"
+    },
+    {
+      "status": "EVALUATING",
+      "at": "2026-11-04T01:55:37.298Z"
+    },
+    {
+      "status": "FAILED",
+      "at": "2026-11-04T01:55:38.141Z",
+      "note": "technical QA failed: duration 15.04s is outside 10-15s"
+    },
+    {
+      "status": "FAILED",
+      "at": "2026-11-04T01:56:50.164Z",
+      "note": "manual: point resume at ASSEMBLING (pre-fix failure recorded EVALUATING)"
+    },
+    {
+      "status": "ASSEMBLING",
+      "at": "2026-11-04T01:56:50.782Z",
+      "note": "resume"
+    },
+    {
+      "status": "EVALUATING",
+      "at": "2026-11-04T01:57:02.577Z"
+    },
+    {
+      "status": "NEEDS_REVIEW",
+      "at": "2026-11-04T01:57:29.358Z"
+    },
+    {
+      "status": "ASSEMBLING",
+      "at": "2026-11-04T01:58:10.025Z",
+      "note": "reassemble"
+    },
+    {
+      "status": "EVALUATING",
+      "at": "2026-11-04T01:58:19.153Z"
+    },
+    {
+      "status": "NEEDS_REVIEW",
+      "at": "2026-11-04T01:58:45.273Z"
+    },
+    {
+      "status": "STORYBOARDING",
+      "at": "2026-11-04T02:01:17.467Z",
+      "note": "regenerate (reviewer approved)"
+    },
+    {
+      "status": "GENERATING",
+      "at": "2026-11-04T02:01:47.601Z"
+    },
+    {
+      "status": "ASSEMBLING",
+      "at": "2026-11-04T02:04:40.558Z"
+    },
+    {
+      "status": "EVALUATING",
+      "at": "2026-11-04T02:04:47.080Z"
+    },
+    {
+      "status": "NEEDS_REVIEW",
+      "at": "2026-11-04T02:05:14.657Z"
+    }
+  ]
+}

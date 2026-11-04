@@ -1,5 +1,5 @@
 import "dotenv/config";
-import { readFile } from "node:fs/promises";
+import { copyFile, readFile } from "node:fs/promises";
 import { join } from "node:path";
 import { parseArgs } from "node:util";
 import { JobStore, type Job } from "./job/store.js";
@@ -17,6 +17,7 @@ Usage:
   npm start -- [--brief brief.json] [--provider fal|mock] [--plan-only] [--no-creative-qa] [--max-regens N]
   npm run cli -- resume <jobId> [--provider fal|mock]
   npm run cli -- reassemble <jobId>     re-edit + re-QA the existing render (no new render cost)
+  npm run cli -- regenerate <jobId>     reviewer-approved re-render of a NEEDS_REVIEW job using its QA findings
   npm run cli -- status <jobId>
   npm run cli -- list
   npm run cli -- qa <file.mp4>`;
@@ -90,6 +91,21 @@ async function main() {
       job.error = undefined;
       job.status = "ASSEMBLING";
       job.history.push({ status: "ASSEMBLING", at: new Date().toISOString(), note: "reassemble" });
+      await store.save(job);
+      return finish(await runJob(job, deps(job.provider)));
+    }
+    case "regenerate": {
+      // Human-in-the-loop: a reviewer looked at a NEEDS_REVIEW job and approved one more paid render.
+      if (!arg) throw new Error("regenerate needs a job id");
+      const job = await store.load(arg);
+      if (job.status !== "NEEDS_REVIEW") throw new Error(`regenerate is for NEEDS_REVIEW jobs (this one is ${job.status})`);
+      const qa = await store.readJson<{ creative: { issues: string[]; regeneration_notes: string } | null }>(job, "qa.json");
+      if (job.outputs.final) await copyFile(join(store.dir(job.id), job.outputs.final), join(store.dir(job.id), `final_${job.generation.submissions}.mp4`));
+      job.generation.regenerations++;
+      job.generation.qaNotes = [...(qa.creative?.issues ?? []).map((i) => `- ${i}`), qa.creative?.regeneration_notes ?? ""].filter(Boolean).join("\n");
+      job.outputs = { strategy: job.outputs.strategy };
+      job.status = "STORYBOARDING";
+      job.history.push({ status: "STORYBOARDING", at: new Date().toISOString(), note: "regenerate (reviewer approved)" });
       await store.save(job);
       return finish(await runJob(job, deps(job.provider)));
     }

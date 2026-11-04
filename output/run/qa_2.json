@@ -1,0 +1,48 @@
+{
+  "submission": 2,
+  "technical": {
+    "exists": true,
+    "playable": true,
+    "duration": 14.9,
+    "resolution": "1080x1920",
+    "aspect_ratio": "9:16",
+    "has_audio": true,
+    "valid": true,
+    "errors": []
+  },
+  "creative": {
+    "realism": {
+      "score": 6,
+      "reason": "Lighting and skin read fairly photographic, and the sweater knit, hair and earrings hold up. Two artifacts cheapen it. The departure board shows legible gibberish ('D4263 Gettre') instead of a full blur. In scene 2 the phone is a flat, overexposed white rectangle that looks like an unfinished mockup."
+    },
+    "visual_consistency": {
+      "score": 7,
+      "reason": "The cream ribbed sweater, long dark hair, gold hoop earrings and black carry-on carry across all four shots. The face is close between hook and hotel, with only slight drift in jaw and brow shape. The grade jumps from cool airport to warm hotel, which is intended and reads as a deliberate shift."
+    },
+    "brief_adherence": {
+      "score": 6,
+      "reason": "The arc of stranded, sorted, walking away and calm morning matches the storyboard, and the overlays land the coverage promise. Several beats were missed: the board is not fully blurred, the scene 2 face never shows the relieved smile, the hotel shot has no clear smile, and the window is in frame rather than out. 'Protected/confidence' comes through, but the product role is told only in text and never shown."
+    },
+    "hook_strength": {
+      "score": 5,
+      "reason": "A woman on a phone at a gate is a familiar, low-tension image. The red board and the 'Stranded at 2am.' line help, but there's no visible frustration, close-up or striking composition to stop a scroll in the first 0.3s. The garbled board also invites scrutiny."
+    },
+    "advertising_quality": {
+      "score": 6,
+      "reason": "The story reads clearly with sound off, and the copy is tight and benefit-led. The end card is clean, but it sits on a muddy, dark blurred background that feels flat rather than premium. The brand is invisible until 14s, and the blank white phone is the weakest moment, landing exactly where the product should shine."
+    },
+    "issues": [
+      "Departure board text is semi-legible garbled AI text rather than fully blurred",
+      "Scene 2 phone screen is blown-out blank white with stray UI specks, so it looks unfinished or cheap",
+      "No relieved smile in scene 2; her face is not visible, so the emotional turn is carried only by text",
+      "Hotel shot lacks the calm smile, and the window is in frame (against the storyboard)",
+      "Slight facial drift between hook frames and the hotel shot",
+      "End card background is dark and muddy, undercutting the premium feel",
+      "Brand or product never appears before the end card"
+    ],
+    "regeneration_notes": "Hook: open tighter (medium close-up). She lowers the phone with a visibly tired exhale. Render the departure board as heavy bokeh with only red glow and no glyphs (add 'no readable text, extreme defocus' to the prompt). Scene 2: frame from the over-shoulder angle at a slight profile so her cheek and smile are visible. Give the phone screen a soft, dim, warm-tinted defocused glow, not pure white, or composite a simple branded NomadGuard confirmation UI in post. Scene 4: add 'gentle closed-mouth smile after sipping', keep the window glass out of frame, and lock the face with the hook reference image. End card: use a lighter, warmer blurred plate from the sunlit hotel shot instead of a dark grey one. Consider a small NomadGuard logo bug from scene 2 onward.",
+    "average": 6,
+    "pass": false
+  },
+  "evaluatedAt": "2026-11-04T01:58:45.271Z"
+}

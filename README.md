@@ -13,7 +13,19 @@ brief.json
   → FINALIZED / NEEDS_REVIEW / FAILED
 ```
 
-**Final ad:** [`output/nomadguard-ad.mp4`](output/nomadguard-ad.mp4). The run that produced it (strategy, storyboard, prompts, QA reports, frames) is in [`output/run/`](output/run/).
+**Final ad:** [`output/nomadguard-ad.mp4`](output/nomadguard-ad.mp4) (14.9s, 1080x1920, H.264 + AAC).
+The run that produced it (strategy, storyboards, provider requests, QA reports, logs, contact sheets) is in [`output/run/`](output/run/).
+
+## Results of the real run
+Concept selected by the planner: **"POV: The 2 A.M. Gate"**. A traveler stranded at a night gate gets it sorted from her phone in minutes, walks off calm, and wakes up to sunrise in a hotel. End card: *NomadGuard · Because delays happen. Be covered when they do. · Get covered in 2 minutes*.
+
+| Render | What changed | Technical QA | Creative QA (avg) | Main findings |
+|---|---|---|---|---|
+| 1 | first storyboard | ✅ 14.04s | 6.2 | hair/wardrobe drift between shots, hook doesn't show the airport, captions low-contrast |
+| 2 | storyboard rewritten from render-1 QA | ❌ 15.04s → fixed in assembly → ✅ 14.9s | 6.6, re-scored 6.0 after re-edit | identity now consistent (visual consistency 6→8); garbled departure-board text, blank phone screen |
+| 3 | reviewer-approved regenerate from render-2 QA | ✅ 13.04s | 5.8 | **identity drift** in the final shot, a different-looking woman |
+
+**Shipped: render 2** ([contact sheet](output/run/contact-sheets/render_2.jpg)). The pipeline ended in `NEEDS_REVIEW` (no render cleared the 7.0 gate), and choosing the best of N is exactly the human decision that state exists for. Render 2 has the most consistent protagonist and the most premium look; its known flaws (slightly garbled text on the out-of-focus departure board, a plain phone screen) are minor at phone size. Render 3 shows that "more QA-driven retries" is not monotonic improvement: fixing one finding introduced worse identity drift. That's the strongest argument for reference-image conditioning (see below). The 3-submission cap stopped further spend.
 
 ## Setup
 
@@ -31,6 +43,8 @@ npm run demo:offline                  # whole pipeline, no API keys: canned LLM 
 npm start -- --plan-only              # strategy + storyboard only; review before paying for a render
 npm run cli -- resume <jobId>         # continue a stopped/failed job from where it left off
 npm start                             # full run: plan → render → assemble → QA
+npm run cli -- reassemble <jobId>     # redo only the edit + QA on existing footage (free)
+npm run cli -- regenerate <jobId>     # reviewer-approved re-render of a NEEDS_REVIEW job, driven by its QA findings
 npm run cli -- status <jobId>         # job state, outputs, error
 npm run cli -- list
 npm run cli -- qa path/to/video.mp4   # technical QA on any file
@@ -45,7 +59,7 @@ Each job writes everything to `runs/<jobId>/`: `job.json` (state + history), `st
 
 ```
 src/
-  cli.ts                 CLI (run / resume / status / list / qa)
+  cli.ts                 CLI (run / resume / reassemble / regenerate / status / list / qa)
   schemas.ts             zod schemas + business rules the JSON schema can't express
   llm.ts                 Claude structured output + validate-and-repair retry loop
   steps/strategy.ts      Part 1

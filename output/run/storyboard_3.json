@@ -1,0 +1,45 @@
+{
+  "title": "POV: The 2 A.M. Gate (Revised)",
+  "style_bible": {
+    "character": "One woman, 30, warm olive skin, dark wavy shoulder-length hair, slim build, face locked to the hook reference frame.",
+    "wardrobe": "Olive bomber over a cream knit with a black carry-on at the gate, then a white hotel robe at sunrise (location change).",
+    "setting": "Empty airport gate and concourse at 2 a.m., then a sunlit hotel room against a soft cream wall with no window glass in frame.",
+    "color_grade": "Cool teal night tones with warm amber accents shifting to a bright golden sunrise, clean and premium.",
+    "lens_and_light": "35-50mm shallow depth of field with heavy background bokeh, dim cool overhead light at night and warm off-frame sunrise side light."
+  },
+  "scenes": [
+    {
+      "duration": 3,
+      "description": "Hook, opening mid-disruption: a medium close-up as she lowers her phone with a visibly tired exhale. Her carry-on handle and empty seat rows read 'airport gate' instantly. The departure board is only a smear of red bokeh.",
+      "camera": "Medium close-up with slight handheld drift.",
+      "on_screen_text": "Stranded at 2am.",
+      "video_prompt": "Woman, 30, dark wavy shoulder-length hair, olive bomber over cream knit: lowers her phone and exhales, visibly tired, shoulders dropping. Empty airport gate at night, seat rows behind, black carry-on handle in frame. Departure board as heavy red bokeh glow, no readable text, extreme defocus. Medium close-up, slight handheld drift. Dim cool overhead light."
+    },
+    {
+      "duration": 3,
+      "description": "Emotional turn: from an over-shoulder angle at a slight profile, she glances back at her phone and her cheek lifts into a clearly visible relieved smile. The phone is angled away and gives off only a dim, warm, defocused glow. In post, the editor adds a small logo bug from this shot onward.",
+      "camera": "Over-shoulder in slight profile with a slow push-in.",
+      "on_screen_text": "→ sorted by 2:05.",
+      "video_prompt": "Woman, 30, dark wavy shoulder-length hair, olive bomber over cream knit: glances at phone, cheek lifts into a relieved smile. Same empty night gate, seats blurred. Over-shoulder slight profile, cheek and smile visible; phone angled away, soft dim warm defocused glow, not white, no screen content. Slow push-in. Warm glow on face against cool ambient."
+    },
+    {
+      "duration": 2,
+      "description": "Momentum: she stands and walks off down the empty concourse pulling her carry-on, her posture visibly lighter. All signage stays fully out of focus.",
+      "camera": "Low-angle tracking shot from behind on a steady gimbal.",
+      "on_screen_text": "Rebooked. Hotel covered.",
+      "video_prompt": "Woman, 30, dark wavy shoulder-length hair, olive bomber over cream knit: walks away pulling black carry-on, posture light and relaxed. Empty night concourse, glossy floor reflecting soft lights, all signage extreme defocus, no readable text. Low-angle tracking from behind, steady gimbal. Cool ambient with warm pools of light."
+    },
+    {
+      "duration": 3,
+      "description": "Resolution: at sunrise in her hotel room, now in a robe, she sips her coffee and settles into a gentle closed-mouth smile. Sunlight falls from an off-frame window and no glass is visible. Clean negative space in the upper third leaves room for the end card, and this frame's warm blur becomes the end-card plate.",
+      "camera": "Static medium close-up with headroom left in the upper third.",
+      "on_screen_text": "",
+      "video_prompt": "Woman, 30, dark wavy shoulder-length hair (location change: now white hotel robe, hotel room at sunrise): sips coffee from white mug, then gentle closed-mouth smile after sipping. Soft cream wall behind, window glass out of frame. Static medium close-up, clean negative space upper third. Warm golden sunlight from off-frame window."
+    }
+  ],
+  "end_card": {
+    "headline": "Because delays happen.",
+    "cta": "Be covered when they do. Get NomadGuard."
+  },
+  "sound": "Low airport HVAC hum, a distant muffled PA with no words, and a tired exhale in the hook. A soft warm notification chime lands on the smile, and a minimal premium piano-and-synth pulse rises underneath. It resolves into a gentle morning bed with faint birds and a soft cup clink on the final sip."
+}
