@@ -1,22 +1,25 @@
-import { copyFile, writeFile } from "node:fs/promises";
+import { copyFile } from "node:fs/promises";
 import { join } from "node:path";
-import { fileURLToPath } from "node:url";
 import { PipelineError, backoffMs, sleep, toPipelineError } from "../errors.js";
 import type { StructuredLlm } from "../llm.js";
 import { log } from "../log.js";
 import type { VideoProvider } from "../providers/VideoProvider.js";
-import { END_CARD_SECONDS, type CreativeScores, type Storyboard, type Strategy } from "../schemas.js";
+import type { AudioProvider } from "../providers/AudioProvider.js";
+import { END_CARD_SECONDS, type AudioPlan, type CreativeScores, type Storyboard, type Strategy } from "../schemas.js";
 import { assemble } from "../steps/assemble.js";
 import { buildVideoRequest } from "../steps/prompts.js";
 import { creativePass, creativeQA, extractFrames, sampleTimes, technicalQA } from "../steps/qa.js";
 import { buildStoryboard } from "../steps/storyboard.js";
 import { planStrategy } from "../steps/strategy.js";
+import { VO_START_SECONDS, download, durationOf, planAudio, synthesizeVoiceover } from "../steps/sound.js";
 import { TERMINAL, type Job, type JobStatus, type JobStore } from "./store.js";
 
 export interface RunnerDeps {
   store: JobStore;
   llm: StructuredLlm;
   provider: VideoProvider;
+  /** Optional: without it the ad ships with the video model's native audio only. */
+  audio?: AudioProvider;
   options?: Partial<RunnerOptions>;
   onUpdate?: (job: Job) => void;
 }
@@ -166,12 +169,48 @@ async function runStep(job: Job, deps: RunnerDeps, o: RunnerOptions): Promise<Jo
       job.outputs.generated = file;
       job.generation.requestId = undefined;
       await store.save(job);
+      return "SCORING";
+    }
+
+    case "SCORING": {
+      // Voice-over + music. Each output is skipped if it already exists, so a failed music call
+      // doesn't re-bill the voice-over on resume.
+      if (!deps.audio) return "ASSEMBLING";
+      const sb = await store.readJson<Storyboard>(job, job.outputs.storyboard!);
+      const rendered = await durationOf(join(dir, job.outputs.generated!));
+      const max = job.brief.format.max_seconds;
+      const total = Math.min(rendered, max - END_CARD_SECONDS - 0.1) + END_CARD_SECONDS;
+      if (!job.outputs.audioPlan) {
+        const plan = await planAudio(llm, job.brief, sb, total);
+        job.outputs.audioPlan = await store.writeJson(job, "audio_plan.json", plan);
+        await store.save(job);
+      }
+      const plan = await store.readJson<AudioPlan>(job, job.outputs.audioPlan);
+      if (!job.outputs.voiceover) {
+        await synthesizeVoiceover(deps.audio, plan, join(dir, "voiceover.mp3"), total - VO_START_SECONDS - 0.3);
+        job.outputs.voiceover = "voiceover.mp3";
+        await store.save(job);
+      }
+      if (!job.outputs.music) {
+        const m = await deps.audio.music({ prompt: plan.music_prompt, durationMs: Math.ceil(total * 1000) });
+        await download(m.url, join(dir, "music.mp3"));
+        job.outputs.music = "music.mp3";
+        await store.save(job);
+      }
       return "ASSEMBLING";
     }
 
     case "ASSEMBLING": {
       const sb = await store.readJson<Storyboard>(job, job.outputs.storyboard!);
-      await assemble({ input: join(dir, job.outputs.generated!), output: join(dir, "final.mp4"), storyboard: sb, brief: job.brief, maxSeconds: job.brief.format.max_seconds });
+      await assemble({
+        input: join(dir, job.outputs.generated!),
+        output: join(dir, "final.mp4"),
+        storyboard: sb,
+        brief: job.brief,
+        maxSeconds: job.brief.format.max_seconds,
+        voiceover: job.outputs.voiceover ? join(dir, job.outputs.voiceover) : undefined,
+        music: job.outputs.music ? join(dir, job.outputs.music) : undefined,
+      });
       job.outputs.final = "final.mp4";
       await store.save(job);
       return "EVALUATING";
@@ -184,8 +223,9 @@ async function runStep(job: Job, deps: RunnerDeps, o: RunnerOptions): Promise<Jo
 
       if (technical.valid && o.creativeQA) {
         const sb = await store.readJson<Storyboard>(job, job.outputs.storyboard!);
-        const footage = technical.duration! - END_CARD_SECONDS;
-        const frames = await extractFrames(final, join(dir, `frames_${job.generation.submissions}`), sampleTimes(sb, footage, END_CARD_SECONDS));
+        const rendered = await durationOf(join(dir, job.outputs.generated!));
+        const cut = technical.duration! - END_CARD_SECONDS;
+        const frames = await extractFrames(final, join(dir, `frames_${job.generation.submissions}`), sampleTimes(sb, rendered, cut, END_CARD_SECONDS));
         const scores = await creativeQA(llm, frames, sb, job.brief);
         creative = { ...scores, ...creativePass(scores) };
       }
@@ -223,11 +263,4 @@ async function runStep(job: Job, deps: RunnerDeps, o: RunnerOptions): Promise<Jo
     default:
       throw new PipelineError(`no handler for status ${job.status}`, { retryable: false });
   }
-}
-
-async function download(url: string, dest: string) {
-  if (url.startsWith("file:")) return copyFile(fileURLToPath(url), dest);
-  const res = await fetch(url);
-  if (!res.ok) throw new PipelineError(`download failed: HTTP ${res.status}`, { retryable: res.status >= 500 || res.status === 429 });
-  await writeFile(dest, Buffer.from(await res.arrayBuffer()));
 }

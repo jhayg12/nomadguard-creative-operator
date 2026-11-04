@@ -85,16 +85,22 @@ export function creativePass(c: CreativeScores) {
 }
 
 /** Frames: two inside the hook window, one mid-shot per scene, one on the end card. */
-export function sampleTimes(sb: Storyboard, renderedSeconds: number, endCardSeconds: number): { t: number; label: string }[] {
+export function sampleTimes(
+  sb: Storyboard,
+  renderedSeconds: number,
+  cutSeconds: number,
+  endCardSeconds: number,
+): { t: number; label: string }[] {
   const planned = sb.scenes.reduce((t, s) => t + s.duration, 0);
   const k = renderedSeconds / planned;
   const out = [{ t: 0.3, label: "hook 0.3s" }, { t: 1.5, label: "hook 1.5s" }];
   let t = 0;
   sb.scenes.forEach((s, i) => {
-    if (i > 0) out.push({ t: (t + s.duration / 2) * k, label: `scene ${i + 1} mid` });
+    const mid = Math.min((t + s.duration / 2) * k, cutSeconds - 0.3);
+    if (i > 0) out.push({ t: mid, label: `scene ${i + 1} mid` });
     t += s.duration;
   });
-  out.push({ t: renderedSeconds + endCardSeconds * 0.8, label: "end card" });
+  out.push({ t: cutSeconds + endCardSeconds * 0.85, label: "end card" });
   return out;
 }
 

@@ -22,7 +22,7 @@ const scene = (duration: number, text = "") => ({ duration, description: "d", ca
 export const storyboard: Storyboard = {
   title: "t",
   style_bible: { character: "c", wardrobe: "w", setting: "s", color_grade: "g", lens_and_light: "l" },
-  scenes: [scene(3, "Flight cancelled?"), scene(3), scene(3, "Covered."), scene(3)],
+  scenes: [scene(3, "Flight cancelled?"), scene(3), scene(2, "Covered."), scene(3)],
   end_card: { headline: "Travel with confidence", cta: "Get covered" },
   sound: "airport ambience",
 };
@@ -45,5 +45,11 @@ export class StubLlm implements StructuredLlm {
   }
 }
 
+export const audioPlan = {
+  voiceover: "Stranded at two a.m.? Not anymore. NomadGuard sorts it, so you can travel with confidence.",
+  voice_direction: "warm, calm",
+  music_prompt: "minimal warm piano and soft synth, builds gently",
+};
+
 export const happyLlm = () =>
-  new StubLlm({ strategy: [strategy], storyboard: [storyboard], "creative-qa": [goodScores] });
+  new StubLlm({ strategy: [strategy], storyboard: [storyboard], "audio-plan": [audioPlan], "creative-qa": [goodScores] });

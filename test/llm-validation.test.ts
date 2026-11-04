@@ -13,7 +13,7 @@ describe("LLM output validation", () => {
 
     const result = await buildStoryboard(llm, brief, strategy);
 
-    expect(result.scenes.reduce((t, s) => t + s.duration, 0)).toBe(12);
+    expect(result.scenes.reduce((t, s) => t + s.duration, 0)).toBe(11);
     expect(llm.calls).toHaveLength(2);
     const retryPrompt = llm.calls[1].content as string;
     expect(retryPrompt).toMatch(/add up to 20s/);

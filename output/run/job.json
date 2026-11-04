@@ -3,7 +3,7 @@
   "status": "NEEDS_REVIEW",
   "provider": "fal",
   "createdAt": "2026-11-04T01:45:27.650Z",
-  "updatedAt": "2026-11-04T02:05:14.658Z",
+  "updatedAt": "2026-11-04T03:36:13.485Z",
   "brief": {
     "brand": "NomadGuard",
     "product": "Travel-protection service for frequent travelers: covers flight delays, cancellations and travel disruptions.",
@@ -33,11 +33,14 @@
   },
   "outputs": {
     "strategy": "strategy.json",
-    "storyboard": "storyboard_3.json",
+    "storyboard": "storyboard_2.json",
     "videoRequest": "video_request_3.json",
-    "generated": "generated_3.mp4",
+    "generated": "generated_2.mp4",
+    "qa": "qa_3.json",
     "final": "final.mp4",
-    "qa": "qa_3.json"
+    "audioPlan": "audio_plan.json",
+    "voiceover": "voiceover.mp3",
+    "music": "music.mp3"
   },
   "generation": {
     "submissions": 3,
@@ -157,6 +160,45 @@
     {
       "status": "NEEDS_REVIEW",
       "at": "2026-11-04T02:05:14.657Z"
+    },
+    {
+      "status": "NEEDS_REVIEW",
+      "at": "2026-11-04T03:34:09.953Z",
+      "note": "manual: select render 2 footage for the sound-design re-edit"
+    },
+    {
+      "status": "SCORING",
+      "at": "2026-11-04T03:34:10.604Z",
+      "note": "reassemble"
+    },
+    {
+      "status": "ASSEMBLING",
+      "at": "2026-11-04T03:34:38.089Z"
+    },
+    {
+      "status": "EVALUATING",
+      "at": "2026-11-04T03:34:47.026Z"
+    },
+    {
+      "status": "NEEDS_REVIEW",
+      "at": "2026-11-04T03:35:12.287Z"
+    },
+    {
+      "status": "SCORING",
+      "at": "2026-11-04T03:35:35.285Z",
+      "note": "reassemble"
+    },
+    {
+      "status": "ASSEMBLING",
+      "at": "2026-11-04T03:35:35.330Z"
+    },
+    {
+      "status": "EVALUATING",
+      "at": "2026-11-04T03:35:45.922Z"
+    },
+    {
+      "status": "NEEDS_REVIEW",
+      "at": "2026-11-04T03:36:13.485Z"
     }
   ]
 }

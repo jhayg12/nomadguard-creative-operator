@@ -8,6 +8,7 @@ export const JOB_STATUSES = [
   "PLANNING",
   "STORYBOARDING",
   "GENERATING",
+  "SCORING", // voice-over + music
   "ASSEMBLING",
   "EVALUATING",
   "FINALIZED", // passed technical + creative QA
@@ -30,6 +31,9 @@ export interface Job {
     storyboard?: string;
     videoRequest?: string;
     generated?: string;
+    audioPlan?: string;
+    voiceover?: string;
+    music?: string;
     final?: string;
     qa?: string;
   };

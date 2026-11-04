@@ -1,0 +1,48 @@
+{
+  "submission": 3,
+  "technical": {
+    "exists": true,
+    "playable": true,
+    "duration": 14.9,
+    "resolution": "1080x1920",
+    "aspect_ratio": "9:16",
+    "has_audio": true,
+    "valid": true,
+    "errors": []
+  },
+  "creative": {
+    "realism": {
+      "score": 6,
+      "reason": "Hook and concourse shots look plausibly photographic. The departure board is semi-sharp with garbled pseudo-text. The phone in scene 2 is a crisp blank white mockup screen that reads as a template. Scene 4 skin and lighting look AI-smooth."
+    },
+    "visual_consistency": {
+      "score": 7,
+      "reason": "Cream ribbed sweater, gold hoops and long dark hair hold across all shots, and the profile in scene 4 matches the hook. Scene 2 breaks the night mood with flat, daylight-like lighting and a different seat and floor style."
+    },
+    "brief_adherence": {
+      "score": 6,
+      "reason": "The beat structure and overlays match the storyboard. Several details deviate: the board is not fully blurred, the phone shows a sharp white screen instead of a soft glow, and there is no visible relieved smile in scene 2. In scene 4 the mug covers her smile, the window glass is in frame, and there is no hotel cue."
+    },
+    "hook_strength": {
+      "score": 6,
+      "reason": "A relatable 2am airport scenario with a red board, plus a strong 'Stranded at 2am' caption. Her expression is calm and conversational rather than defeated, so there is little visible tension to stop the scroll in frame 1."
+    },
+    "advertising_quality": {
+      "score": 6,
+      "reason": "The sound-off story reads clearly (stranded, sorted, covered) and the end card is clean and premium. The emotional payoff is weak because no relief or smile is shown. The product is never visualized beyond a blank phone, and the brand only appears at the end. Close to runnable but not yet polished."
+    },
+    "issues": [
+      "Departure board shows garbled semi-legible characters instead of a full blur",
+      "Scene 2 phone screen is a sharp blank white mockup that looks unfinished",
+      "Scene 2 lighting and set (daylight tone, grey granite floor) mismatch the 2am night look of the hook and scene 3",
+      "No relieved smile visible in scene 2, where the face is cropped out",
+      "Scene 4 mug covers her mouth, so the calm smile payoff is lost; window glass is visible despite the brief",
+      "Hook expression is neutral and chatty rather than stressed, which weakens the problem beat",
+      "No hotel context in the resolution shot"
+    ],
+    "regeneration_notes": "Hook: 'exhausted woman lowers phone from ear, shoulders drop, tired frustrated exhale, dim night airport gate, departure board in heavy bokeh with no readable characters, red glow only'. Scene 2: 'over-shoulder at the same dark night gate with matching black seats and warm low lighting; phone screen a soft out-of-focus teal-tinted glow with no UI; her cheek and smile visible in three-quarter profile as her face relaxes'. Scene 4: 'hotel room with a bed corner or crisp linens visible, morning sun from an out-of-frame window, she lowers the mug from her lips and smiles calmly, mug held at chest height, natural skin texture, no window glass in frame'. Optionally add a brief branded app UI glow or a NomadGuard logo watermark mid-video for earlier brand recall.",
+    "average": 6.2,
+    "pass": false
+  },
+  "evaluatedAt": "2026-11-04T03:36:13.483Z"
+}

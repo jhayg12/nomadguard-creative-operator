@@ -7,6 +7,9 @@ import { runJob, type RunnerDeps } from "./job/runner.js";
 import { ClaudeLlm } from "./llm.js";
 import { FalKlingProvider } from "./providers/falKling.js";
 import { MockVideoProvider } from "./providers/mock.js";
+import { MockAudioProvider } from "./providers/mockAudio.js";
+import { FalElevenLabsAudio } from "./providers/falElevenLabs.js";
+import type { AudioProvider } from "./providers/AudioProvider.js";
 import type { VideoProvider } from "./providers/VideoProvider.js";
 import { BriefSchema } from "./schemas.js";
 import { technicalQA } from "./steps/qa.js";
@@ -16,7 +19,7 @@ const HELP = `NomadGuard creative operator
 Usage:
   npm start -- [--brief brief.json] [--provider fal|mock] [--plan-only] [--no-creative-qa] [--max-regens N]
   npm run cli -- resume <jobId> [--provider fal|mock]
-  npm run cli -- reassemble <jobId>     re-edit + re-QA the existing render (no new render cost)
+  npm run cli -- reassemble <jobId>     re-edit + re-QA the existing render (no new video render; adds missing VO/music)
   npm run cli -- regenerate <jobId>     reviewer-approved re-render of a NEEDS_REVIEW job using its QA findings
   npm run cli -- status <jobId>
   npm run cli -- list
@@ -26,6 +29,11 @@ export function makeProvider(name: string, store: JobStore): VideoProvider {
   if (name === "mock") return new MockVideoProvider(join(store.root, "_mock"));
   if (name === "fal") return new FalKlingProvider();
   throw new Error(`unknown provider "${name}" (use fal or mock)`);
+}
+
+export function makeAudio(name: string, store: JobStore): AudioProvider | undefined {
+  if (process.env.NO_AUDIO === "1") return undefined;
+  return name === "mock" ? new MockAudioProvider(join(store.root, "_mock")) : new FalElevenLabsAudio();
 }
 
 export function summary(job: Job) {
@@ -60,6 +68,7 @@ async function main() {
     store,
     llm: new ClaudeLlm(),
     provider: makeProvider(provider, store),
+    audio: makeAudio(provider, store),
     options: {
       creativeQA: !values["no-creative-qa"],
       ...(values["plan-only"] ? { stopAt: "GENERATING" as const } : {}),
@@ -89,8 +98,9 @@ async function main() {
       if (!job.outputs.generated) throw new Error("job has no generated footage yet; use resume");
       job.outputs.final = undefined;
       job.error = undefined;
-      job.status = "ASSEMBLING";
-      job.history.push({ status: "ASSEMBLING", at: new Date().toISOString(), note: "reassemble" });
+      // SCORING first: it only creates voice-over/music that don't exist yet, then the edit is redone.
+      job.status = "SCORING";
+      job.history.push({ status: "SCORING", at: new Date().toISOString(), note: "reassemble" });
       await store.save(job);
       return finish(await runJob(job, deps(job.provider)));
     }
