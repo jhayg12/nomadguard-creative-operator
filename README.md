@@ -41,6 +41,17 @@ npm test
 Flags: `--provider fal|mock`, `--no-motion`, `--no-creative-qa`, `--max-regens N`, `--brief other.json`.
 Each job writes everything to `runs/<jobId>/` (`job.json` state + history, every intermediate file).
 
+## How to generate a video
+
+The interface is a CLI (Option B); there are no prompts to answer. The input is a **data file**, not source code.
+
+1. **Edit the brief** (optional): `brief.json` holds brand, product, audience, problems, core message, brand feel and format (9:16, 10–15s). Change any text to make a different ad, or keep several briefs and pick one with `--brief my-brief.json`.
+2. **Run** `npm start`. It prints the job id and one log line per step (planning → storyboard → render → sound → edit/motion → QA), and takes about 8 minutes (mostly render queue).
+3. **Get the result** in `runs/<jobId>/final.mp4`, next to `strategy.json` (angles + why), `storyboard*.json`, `video_request_N.json` (exact prompts sent), `qa*.json` and `job.json` (status + history). `npm run cli -- status <jobId>` shows where a job is.
+
+To review the creative before paying for a render: `npm start -- --plan-only`, read `strategy.json` / `storyboard.json`, then `npm run cli -- resume <jobId>`.
+If the job ends in `NEEDS_REVIEW`, watch the video and either keep it or run `npm run cli -- regenerate <jobId>` for one more QA-driven render.
+
 ## Providers used
 
 | Purpose | Provider / model | Approx. cost per run |
