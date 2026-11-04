@@ -1,22 +1,22 @@
 {
   "hook": {
-    "kicker": "2:00 AM",
-    "stamp": "MISSED",
-    "headline": "STRANDED."
+    "kicker": "DEPARTURES",
+    "stamp": "CANCELLED",
+    "headline": "NOW WHAT?"
   },
   "product_card": {
-    "title": "Tonight is sorted",
-    "body": "Your hotel stay is taken care of.",
-    "badge": "Protected"
+    "title": "Flight cancelled",
+    "body": "We're on it. You're protected.",
+    "badge": "Covered"
   },
   "kinetic": {
-    "line1": "Delays happen.",
-    "line2": "You're protected.",
-    "highlight": "protected."
+    "line1": "Same chaos.",
+    "line2": "Different day.",
+    "highlight": "Different"
   },
   "checklist": [
-    "Disruption managed",
-    "Hotel sorted",
-    "Expenses handled"
+    "Disruption handled",
+    "Rebooking sorted",
+    "Costs covered"
   ]
 }

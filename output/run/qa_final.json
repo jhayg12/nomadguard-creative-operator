@@ -1,9 +1,9 @@
 {
-  "submission": 3,
+  "submission": 2,
   "technical": {
     "exists": true,
     "playable": true,
-    "duration": 14.9,
+    "duration": 13.53,
     "resolution": "1080x1920",
     "aspect_ratio": "9:16",
     "has_audio": true,
@@ -12,39 +12,37 @@
   },
   "creative": {
     "realism": {
-      "score": 7,
-      "reason": "Mostly photoreal and well lit with no obvious warped hands or melting objects. The departure board shows pseudo-text that isn't fully blurred, and the phone in scene 2 has a blank white screen that reads as a placeholder."
+      "score": 6,
+      "reason": "Faces and skin are convincing, and the lighting reads as airport. Three AI tells remain. The departure board shows pseudo-text like 'AIRO', 'CAUSES' and garbled city names. The aircraft carries a garbled livery ('SQ SANTEILE') and a nonsense tail logo. A small glowing teal capsule floats on her hair part in shot 2."
     },
     "visual_consistency": {
       "score": 7,
-      "reason": "The cream sweater, gold hoop earrings, long dark hair and black carry-on hold across shots. In scene 2 the hair looks lighter and browner, and the background shifts from a dark night gate to a bright grey carpeted floor, which breaks location continuity."
+      "reason": "Her face, hair and camel coat with white tee hold across shots 1–3. Her outer layer changes from a hip-length blazer (shots 1–2) to a long overcoat (shot 3). In shot 4 she is small and mid-sip, so her face can't be verified as a match and the 'calm confident smile' payoff is lost."
     },
     "brief_adherence": {
       "score": 6,
-      "reason": "The four-beat structure and end card match. Several storyboard beats drift: in the hook she is mid-call rather than lowering the phone and exhaling, and the board is not fully blurred. The scene 2 relieved smile is never shown because her face is out of frame. The '2:05' payoff is dropped. In scene 4 the mug hides her face and there is no calm smile."
+      "reason": "The story beats are followed: disruption, phone moment, walk-away, lounge, end card. Several specs are missed. The board was meant to have no legible characters. Shot 2 has a floating graphic artifact despite the 'no floating graphics' rule. The shot 4 overlay sits in the lower-left over the chair and near her body instead of the clean upper third. The on-screen copy deviates: 'Already covered.' is replaced by the notification, and 'Delays. Cancellations. Covered.' becomes a checklist. That copy works but is off-brief."
     },
     "hook_strength": {
-      "score": 7,
-      "reason": "The '2:00 AM' caption, red 'MISSED' stamp and night gate give an instant, relatable pain point. Framing is somewhat static, and 'STRANDED.' lands at 1.5s over a busy area near her hands."
+      "score": 8,
+      "reason": "A tight, red-lit face with a CANCELLED stamp and 'NOW WHAT?' is instantly relatable and readable with sound off. It is strong scroll-stopping tension in the first second."
     },
     "advertising_quality": {
-      "score": 7,
-      "reason": "Clean typography, a native-feeling notification UI, a clear problem-to-relief arc and a solid end card all read with sound off. Two things undercut the premium feel: the blank white phone screen and the missing emotional payoff on her face. Losing the '2:00 to 2:05' contrast weakens the speed claim."
+      "score": 6,
+      "reason": "The narrative and motion graphics are clean and premium. The notification card, checklist and end card are well designed and legible, and the brand promise lands without sound. Garbled airline text in the hero resolution shot and the hair artifact undercut the trust the brand is selling, and the hero shot lacks a readable emotional payoff."
     },
     "issues": [
-      "Departure board shows garbled pseudo-text rows that are only partly covered by the MISSED stamp; it is not fully blurred",
-      "Scene 2 phone screen is blank white with faint UI fragments and looks unfinished",
-      "Scene 2 never shows her face, so the relief and smile beat is missing",
-      "Hair reads lighter and browner in scene 2 (identity and colour drift)",
-      "Scene 2 background (bright grey carpet) does not match the dark gate from the hook",
-      "The 'Sorted by 2:05' time payoff was dropped, weakening the speed proof",
-      "Hook shows her talking on the phone, not lowering it and exhaling",
-      "Scene 4: the mug covers her mouth and there is no calm smile, so the resolution feels flat",
-      "'Expenses handled' and 'Hotel sorted' claims may need compliance review"
+      "Garbled pseudo-text on the departure board in the hook (header and row names partially legible)",
+      "Small glowing teal capsule artifact on her hair part in shot 2",
+      "Garbled airline livery 'SQ SANTEILE' and nonsense tail logo on the aircraft in shot 4",
+      "Wardrobe drift: hip-length blazer in shots 1–2 becomes a long overcoat in shot 3",
+      "Shot 4: her face is hidden by the cup and she is small in frame, so there is no visible calm smile and identity can't be confirmed",
+      "Shot 4 overlay placed lower-left over the chair and near her legs instead of the upper third as specified",
+      "Eyes-closed smile while walking toward camera in shot 3 reads slightly odd/staged"
     ],
-    "regeneration_notes": "Hook:\n- Keep the departure board heavily defocused, with only red glow and no legible rows.\n- Start with the phone at her ear, then show her lowering it and exhaling, shoulders dropping.\n- Place 'STRANDED.' higher, clear of her hands.\n\nScene 2:\n- Use an over-shoulder shot in the same dark gate, with black seats and night windows behind her.\n- Show her profile with the cheek visibly lifting into a relieved smile.\n- Give the phone screen a soft out-of-focus teal glow, not white.\n- Match the very dark brown, almost black, long straight hair from the hook.\n- Restore the caption 'Sorted by 2:05. Hotel covered.' next to the notification.\n\nScene 4:\n- Have her lower the matte mug from her lips and smile calmly toward the window, with her face unobstructed.\n- Keep the same sweater, gold hoops and hair.",
-    "average": 6.8,
+    "regeneration_notes": "Shot 1: render the departure board as an abstract field of glowing red horizontal bars with no glyphs or characters at all, using heavy defocus (f/1.4) so there is no readable text, headers or logos. Shot 2: add 'no glowing objects, no lights or graphics on hair or body' and keep the phone screen fully facing away from camera. Shot 3: lock wardrobe to 'hip-length camel blazer, white crew tee, dark jeans' in every shot, matching shots 1–2. Use 'eyes open, soft relaxed smile, looking slightly past camera.' Shot 4: use a plain white aircraft with no livery, no text, no logos and a blank tail. Frame a medium shot so she is larger in frame, and capture the moment she lowers the cup to show a clear calm smile with her face unobstructed. Keep the upper third of frame as clean sky for the overlay and move the checklist into that upper third in the edit. Match skin texture and warm key light to shot 3.",
+    "average": 6.6,
     "pass": false
   },
-  "evaluatedAt": "2026-11-04T04:18:19.048Z"
+  "evaluatedAt": "2026-11-04T04:43:03.751Z"
 }

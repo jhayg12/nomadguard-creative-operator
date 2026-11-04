@@ -1,9 +1,9 @@
 {
-  "id": "20261104014527-0e7f2c",
+  "id": "20261104042628-4bfc3f",
   "status": "NEEDS_REVIEW",
   "provider": "fal",
-  "createdAt": "2026-11-04T01:45:27.650Z",
-  "updatedAt": "2026-11-04T04:18:19.049Z",
+  "createdAt": "2026-11-04T04:26:28.189Z",
+  "updatedAt": "2026-11-04T04:43:03.753Z",
   "brief": {
     "brand": "NomadGuard",
     "product": "Travel-protection service for frequent travelers: covers flight delays, cancellations and travel disruptions.",
@@ -34,250 +34,95 @@
   "outputs": {
     "strategy": "strategy.json",
     "storyboard": "storyboard_2.json",
-    "videoRequest": "video_request_3.json",
+    "videoRequest": "video_request_2.json",
     "generated": "generated_2.mp4",
-    "qa": "qa_3.json",
+    "final": "final.mp4",
+    "qa": "qa_2.json",
     "audioPlan": "audio_plan.json",
     "voiceover": "voiceover.mp3",
     "music": "music.mp3",
-    "final": "final.mp4",
     "motionSpec": "motion_spec.json"
   },
   "generation": {
-    "submissions": 3,
-    "regenerations": 2,
+    "submissions": 2,
+    "regenerations": 1,
     "lastProviderState": "COMPLETED",
-    "qaNotes": "- Departure board text is semi-legible garbled AI text rather than fully blurred\n- Scene 2 phone screen is blown-out blank white with stray UI specks, so it looks unfinished or cheap\n- No relieved smile in scene 2; her face is not visible, so the emotional turn is carried only by text\n- Hotel shot lacks the calm smile, and the window is in frame (against the storyboard)\n- Slight facial drift between hook frames and the hotel shot\n- End card background is dark and muddy, undercutting the premium feel\n- Brand or product never appears before the end card\nHook: open tighter (medium close-up). She lowers the phone with a visibly tired exhale. Render the departure board as heavy bokeh with only red glow and no glyphs (add 'no readable text, extreme defocus' to the prompt). Scene 2: frame from the over-shoulder angle at a slight profile so her cheek and smile are visible. Give the phone screen a soft, dim, warm-tinted defocused glow, not pure white, or composite a simple branded NomadGuard confirmation UI in post. Scene 4: add 'gentle closed-mouth smile after sipping', keep the window glass out of frame, and lock the face with the hook reference image. End card: use a lighter, warmer blurred plate from the sunlit hotel shot instead of a dark grey one. Consider a small NomadGuard logo bug from scene 2 onward."
+    "qaNotes": "- Garbled AI text across the departure board in both hook frames\n- Face reflection looks like a semi-transparent overlay, not a real reflection\n- Small stray green UI element floating mid-frame in scene 2 (~center, above her head)\n- Scene 4 checklist overlays her hand/coffee cup; upper third is empty sky while the text crowds the subject\n- Scene 4 face over-smoothed/plastic compared to scene 3\n- Airplane wing/engine oddly scaled and pressed against the window in scene 4\n- Hook overlay copy stack (Departures + CANCELLED + STRANDED.) is cluttered\n- CTA button 'Get NomadGuard.' has an odd trailing period\nHook: regenerate the departure board with no legible fake text. Either use a shallow-focus board where rows are soft bokeh blur with only red status bars, or composite a real, clean board graphic with plausible flight codes (e.g. 'LHR 08:45 CANCELLED'). Make the reflection physically plausible: a faint, angled reflection on glass with her face sharp enough to read worry. Alternatively, open on a close-up of her face lit red by the board. Simplify the hook overlay to a single line ('Flight cancelled.'). Scene 2: remove the floating green artifact; prompt 'clean background, no UI elements in scene'. Scene 4: prompt 'natural skin texture, aircraft at realistic distance on apron', and place the checklist in the upper third over the sky so it doesn't cover her hands or coffee. End card: drop the period from the CTA button."
   },
   "history": [
     {
       "status": "CREATED",
-      "at": "2026-11-04T01:45:27.650Z"
+      "at": "2026-11-04T04:26:28.189Z"
     },
     {
       "status": "PLANNING",
-      "at": "2026-11-04T01:45:27.655Z"
+      "at": "2026-11-04T04:26:28.193Z"
     },
     {
       "status": "STORYBOARDING",
-      "at": "2026-11-04T01:45:39.830Z"
+      "at": "2026-11-04T04:26:40.491Z"
     },
     {
       "status": "GENERATING",
-      "at": "2026-11-04T01:46:01.588Z"
+      "at": "2026-11-04T04:27:03.806Z"
+    },
+    {
+      "status": "SCORING",
+      "at": "2026-11-04T04:30:59.025Z"
     },
     {
       "status": "ASSEMBLING",
-      "at": "2026-11-04T01:49:40.604Z"
+      "at": "2026-11-04T04:31:24.448Z"
     },
     {
       "status": "EVALUATING",
-      "at": "2026-11-04T01:49:47.490Z"
-    },
-    {
-      "status": "GENERATING",
-      "at": "2026-11-04T01:50:16.132Z"
-    },
-    {
-      "status": "FAILED",
-      "at": "2026-11-04T01:50:17.470Z",
-      "note": "fal result: Unprocessable Entity (HTTP 422)"
-    },
-    {
-      "status": "FAILED",
-      "at": "2026-11-04T01:51:41.442Z",
-      "note": "manual: migrated to storyboard-based regeneration after fal 422 (prompt > 512 chars); rejected submission #2 was never rendered"
+      "at": "2026-11-04T04:32:42.241Z"
     },
     {
       "status": "STORYBOARDING",
-      "at": "2026-11-04T01:51:41.875Z",
-      "note": "resume"
+      "at": "2026-11-04T04:33:09.647Z"
     },
     {
       "status": "GENERATING",
-      "at": "2026-11-04T01:52:15.349Z"
-    },
-    {
-      "status": "ASSEMBLING",
-      "at": "2026-11-04T01:55:28.642Z"
-    },
-    {
-      "status": "EVALUATING",
-      "at": "2026-11-04T01:55:37.298Z"
-    },
-    {
-      "status": "FAILED",
-      "at": "2026-11-04T01:55:38.141Z",
-      "note": "technical QA failed: duration 15.04s is outside 10-15s"
-    },
-    {
-      "status": "FAILED",
-      "at": "2026-11-04T01:56:50.164Z",
-      "note": "manual: point resume at ASSEMBLING (pre-fix failure recorded EVALUATING)"
-    },
-    {
-      "status": "ASSEMBLING",
-      "at": "2026-11-04T01:56:50.782Z",
-      "note": "resume"
-    },
-    {
-      "status": "EVALUATING",
-      "at": "2026-11-04T01:57:02.577Z"
-    },
-    {
-      "status": "NEEDS_REVIEW",
-      "at": "2026-11-04T01:57:29.358Z"
-    },
-    {
-      "status": "ASSEMBLING",
-      "at": "2026-11-04T01:58:10.025Z",
-      "note": "reassemble"
-    },
-    {
-      "status": "EVALUATING",
-      "at": "2026-11-04T01:58:19.153Z"
-    },
-    {
-      "status": "NEEDS_REVIEW",
-      "at": "2026-11-04T01:58:45.273Z"
-    },
-    {
-      "status": "STORYBOARDING",
-      "at": "2026-11-04T02:01:17.467Z",
-      "note": "regenerate (reviewer approved)"
-    },
-    {
-      "status": "GENERATING",
-      "at": "2026-11-04T02:01:47.601Z"
-    },
-    {
-      "status": "ASSEMBLING",
-      "at": "2026-11-04T02:04:40.558Z"
-    },
-    {
-      "status": "EVALUATING",
-      "at": "2026-11-04T02:04:47.080Z"
-    },
-    {
-      "status": "NEEDS_REVIEW",
-      "at": "2026-11-04T02:05:14.657Z"
-    },
-    {
-      "status": "NEEDS_REVIEW",
-      "at": "2026-11-04T03:34:09.953Z",
-      "note": "manual: select render 2 footage for the sound-design re-edit"
+      "at": "2026-11-04T04:33:41.901Z"
     },
     {
       "status": "SCORING",
-      "at": "2026-11-04T03:34:10.604Z",
-      "note": "reassemble"
+      "at": "2026-11-04T04:37:36.909Z"
     },
     {
       "status": "ASSEMBLING",
-      "at": "2026-11-04T03:34:38.089Z"
+      "at": "2026-11-04T04:37:36.948Z"
     },
     {
       "status": "EVALUATING",
-      "at": "2026-11-04T03:34:47.026Z"
+      "at": "2026-11-04T04:38:38.463Z"
     },
     {
       "status": "NEEDS_REVIEW",
-      "at": "2026-11-04T03:35:12.287Z"
-    },
-    {
-      "status": "SCORING",
-      "at": "2026-11-04T03:35:35.285Z",
-      "note": "reassemble"
-    },
-    {
-      "status": "ASSEMBLING",
-      "at": "2026-11-04T03:35:35.330Z"
-    },
-    {
-      "status": "EVALUATING",
-      "at": "2026-11-04T03:35:45.922Z"
+      "at": "2026-11-04T04:39:04.910Z"
     },
     {
       "status": "NEEDS_REVIEW",
-      "at": "2026-11-04T03:36:13.485Z"
+      "at": "2026-11-04T04:40:47.990Z",
+      "note": "manual: regenerate stale VO/music/copy after the regeneration bug fix"
     },
     {
       "status": "SCORING",
-      "at": "2026-11-04T04:08:06.595Z",
+      "at": "2026-11-04T04:40:48.788Z",
       "note": "reassemble"
     },
     {
       "status": "ASSEMBLING",
-      "at": "2026-11-04T04:08:06.640Z"
-    },
-    {
-      "status": "FAILED",
-      "at": "2026-11-04T04:08:37.309Z",
-      "note": "motion render failed: Module not found: Error: Can't resolve './Root.js' in '/home/jhayg12/nomadguard-creative-operator/src/motion'\nresolve './Root.js' in '/home/jhayg12/nomadguard-creative-operator/src/motion'\n  using description file: /home/jhayg12/nomadguard-creative-operator/package.json (relative path: ./src/motion)\n    Field 'browser' doesn't contain a valid alias configuration\n    using description file: /home/jhayg12/nomadguard-creative-operator/package.json (relative path: ./src/motion/Root.js)\n      no extension\n        Field 'browser' doesn't contain a valid alias configuration\n        /home/jhayg12/nomadguard-creative-operator/src/motion/Root.js doesn't exist\n      .ts\n        Field 'browser' doesn't contain a valid alias configuration\n        /home/jhayg12/nomadguard-creative-operator/src/motion/Root.js.ts doesn't exist\n      .tsx\n        Field 'browser' doesn't contain a valid alias configuration\n        /home/jhayg12/nomadguard-creative-operator/src/motion/Root.js.tsx doesn't exist\n      .web.js\n        Field 'browser' doesn't contain a valid alias configuration\n        /home/jhayg12/nomadguard-creative-operator/src/motion/Root.js.web.js doesn't exist\n      .js\n        Field 'browser' doesn't contain a valid alias configuration\n        /home/jhayg12/nomadguard-creative-operator/src/motion/Root.js.js doesn't exist\n      .jsx\n        Field 'browser' doesn't contain a valid alias configuration\n        /home/jhayg12/nomadguard-creative-operator/src/motion/Root.js.jsx doesn't exist\n      .mjs\n        Field 'browser' doesn't contain a valid alias configuration\n        /home/jhayg12/nomadguard-creative-operator/src/motion/Root.js.mjs doesn't exist\n      .cjs\n        Field 'browser' doesn't contain a valid alias configuration\n        /home/jhayg12/nomadguard-creative-operator/src/motion/Root.js.cjs doesn't exist\n      as directory\n        /home/jhayg12/nomadguard-creative-operator/src/motion/Root.js doesn't exist"
-    },
-    {
-      "status": "ASSEMBLING",
-      "at": "2026-11-04T04:08:45.319Z",
-      "note": "resume"
+      "at": "2026-11-04T04:41:27.713Z"
     },
     {
       "status": "EVALUATING",
-      "at": "2026-11-04T04:10:13.722Z"
-    },
-    {
-      "status": "FINALIZED",
-      "at": "2026-11-04T04:10:37.147Z"
-    },
-    {
-      "status": "SCORING",
-      "at": "2026-11-04T04:11:08.733Z",
-      "note": "reassemble"
-    },
-    {
-      "status": "ASSEMBLING",
-      "at": "2026-11-04T04:11:08.777Z"
-    },
-    {
-      "status": "EVALUATING",
-      "at": "2026-11-04T04:12:22.655Z"
-    },
-    {
-      "status": "FINALIZED",
-      "at": "2026-11-04T04:12:46.390Z"
-    },
-    {
-      "status": "SCORING",
-      "at": "2026-11-04T04:13:21.067Z",
-      "note": "reassemble"
-    },
-    {
-      "status": "ASSEMBLING",
-      "at": "2026-11-04T04:13:21.130Z"
-    },
-    {
-      "status": "EVALUATING",
-      "at": "2026-11-04T04:14:32.860Z"
+      "at": "2026-11-04T04:42:34.194Z"
     },
     {
       "status": "NEEDS_REVIEW",
-      "at": "2026-11-04T04:14:58.014Z"
-    },
-    {
-      "status": "SCORING",
-      "at": "2026-11-04T04:16:26.742Z",
-      "note": "reassemble"
-    },
-    {
-      "status": "ASSEMBLING",
-      "at": "2026-11-04T04:16:26.788Z"
-    },
-    {
-      "status": "EVALUATING",
-      "at": "2026-11-04T04:17:54.256Z"
-    },
-    {
-      "status": "NEEDS_REVIEW",
-      "at": "2026-11-04T04:18:19.049Z"
+      "at": "2026-11-04T04:43:03.752Z"
     }
   ]
 }

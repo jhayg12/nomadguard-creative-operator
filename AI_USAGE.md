@@ -24,7 +24,10 @@ Most of the code (~90%) was written by Claude Code from my direction and then re
 
 4. **Motion copy repeated one word everywhere.** The first motion specs leaned on "covered" for the pill, the card, the kinetic line, two checklist items and the end card. QA flagged it, and on reading the frames I agreed. I added a deterministic rule (no content word more than twice across all on-screen copy, end card included) instead of hoping a prompt tweak would hold. On the next run it rejected a spec with "covered" x7 and the model repaired it.
 
+5. **Re-render reused stale audio and copy.** When I added the SCORING (VO/music) and motion steps, the AI-written regeneration path still only cleared the storyboard and footage. Unit tests passed. A fresh real `npm start` before submitting showed the automatic re-render reusing the voice-over, music and on-screen copy written for the first storyboard. I fixed it so everything derived from a storyboard is regenerated with it, and added a regression test that fails on the old behaviour.
+
 ## How I supervised it
 - Read the generated strategy, storyboard and final prompts before allowing a paid render (`--plan-only`).
 - Checked rendered frames visually, not just exit codes.
-- Kept tests focused on the riskiest behaviour: paying twice, accepting invalid LLM output, shipping a technically broken file.
+- Kept tests focused on the riskiest behaviour: paying twice, accepting invalid LLM output, shipping a technically broken file, stale assets after a re-render.
+- Ran the whole pipeline for real from a clean `npm start` before submitting, not only resumed/edited jobs.

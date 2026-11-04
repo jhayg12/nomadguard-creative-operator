@@ -3,7 +3,7 @@
   "technical": {
     "exists": true,
     "playable": true,
-    "duration": 14.04,
+    "duration": 14.53,
     "resolution": "1080x1920",
     "aspect_ratio": "9:16",
     "has_audio": true,
@@ -12,38 +12,38 @@
   },
   "creative": {
     "realism": {
-      "score": 7,
-      "reason": "Photoreal faces, skin, and knit texture with no obvious hand or face melt. The concourse and hotel shots are clean. Minor oddities: the hook phone is soft and partially cropped, there is a ghosted mug reflection in the window, and the empty airport looks slightly CG-sterile."
+      "score": 5,
+      "reason": "The departure board in the hook is full of garbled AI pseudo-text (\"TERGIGS\", \"EAOG$S\", \"K.ROECES\") and fills most of the frame for the first 3s. The face 'reflection' reads as a flat double-exposure composite, not glass reflection. Scenes 2-4 are fairly photoreal, though the scene 4 skin is over-smoothed and the jet sits oddly close to the glass."
     },
     "visual_consistency": {
-      "score": 6,
-      "reason": "Earrings and the cream sweater carry through the close-ups. Hair changes from long and straight (hook) to shoulder-length waves (scene 2). In scene 3 she wears a thin white blouse and heels instead of the chunky knit. Her face in the robe shot reads slightly different and older."
+      "score": 7,
+      "reason": "The character holds well: sleek dark bob, beige trench and black turtleneck in every shot. Wardrobe and grading are coherent. Scene 4 shifts to a warmer, plasticky face, but she stays recognizable."
     },
     "brief_adherence": {
-      "score": 6,
-      "reason": "The emotional arc matches: stress, relief, walking off, calm payoff with the sky in the upper third. However, the hook never shows the deserted gate or the carry-on at her feet, so 'stranded' relies entirely on text. The lower-phone-and-exhale beat is unclear. The protection and insurance promise only appears on the end card."
+      "score": 7,
+      "reason": "The story arc matches: cancellation, the app handles it, she's calm, then a premium lounge. The core 'protected when things go wrong' promise reads clearly via the notification and the checklist. On-screen copy deviates from the storyboard, though the replacements arguably work. Scene 4 does not keep the upper third clean as specified. The storyboard's 'she exhales/turns away from the crowd' beats aren't visible in the frames."
     },
     "hook_strength": {
       "score": 6,
-      "reason": "A tight distressed face plus 'Stranded at 2am.' is relatable. Without visible airport or departure-board context, the first frame reads as someone on a phone call at night. The caption is small and low-contrast, and there is no pattern interrupt."
+      "reason": "A red CANCELLED stamp and 'STRANDED.' are relatable and readable sound-off. However, the frame is busy and the gibberish board text undermines credibility instantly. The hero's face is ghosted and hard to read, so there's no human emotion to stop the scroll."
     },
     "advertising_quality": {
       "score": 6,
-      "reason": "The look is polished and premium, and the relief arc is clear. The product is invisible: no app UI or claim screen, so '→ sorted by 2:05' doesn't say what was sorted or by whom. The brand appears only at 13s with no logo. The end card is a generic blurred plate with a fake-button CTA and no offer or action verb."
+      "reason": "The notification UI and the checklist (Rebooked / Hotel sorted / Costs covered) are strong, clear value props. The end card is clean and on-brand. But the AI-text hook and the floating UI glitch cheapen a 'premium, trustworthy' insurance brand. The checklist covers her hands and coffee, and the end card is generic."
     },
     "issues": [
-      "No airport/gate or carry-on visible in the hook; 'stranded' context is text-only",
-      "Hair length and style drift between hook and scene 2",
-      "Wardrobe changes from chunky knit sweater to thin blouse with heels in the concourse shot",
-      "Face in the hotel robe scene looks like a slightly different person",
-      "Phone screen never shows the NomadGuard app, so the product role is unclear",
-      "Ghost duplicate mug reflection in the window in scene 4",
-      "Captions small and thin with weak contrast over the light sweater",
-      "End card lacks a logo; the CTA box looks like a button but has no clear action"
+      "Garbled AI text across the departure board in both hook frames",
+      "Face reflection looks like a semi-transparent overlay, not a real reflection",
+      "Small stray green UI element floating mid-frame in scene 2 (~center, above her head)",
+      "Scene 4 checklist overlays her hand/coffee cup; upper third is empty sky while the text crowds the subject",
+      "Scene 4 face over-smoothed/plastic compared to scene 3",
+      "Airplane wing/engine oddly scaled and pressed against the window in scene 4",
+      "Hook overlay copy stack (Departures + CANCELLED + STRANDED.) is cluttered",
+      "CTA button 'Get NomadGuard.' has an odd trailing period"
     ],
-    "regeneration_notes": "Hook: open on a medium-close shot at a deserted airport gate at night, with a departure board showing 'CANCELLED' in red soft-focus behind her and a black carry-on beside her knee. She lowers the phone from her ear and exhales. Lock character identity across all shots: same woman, long straight dark hair past the shoulders, gold hoops, cream chunky ribbed crewneck sweater, dark trousers, white sneakers (no heels). Scene 2: include an over-shoulder insert of the phone screen showing a clean NomadGuard app card reading 'Hotel booked · Covered' with a check mark. Scene 3: keep the chunky knit sweater visible from behind. Scene 4: use the same face and hair as the reference (hair tied back is fine), and avoid duplicate reflections in the window. Text: increase caption size and weight and add a subtle shadow or pill background. End card: add the NomadGuard logo mark and an explicit CTA such as 'Get covered in 2 minutes'.",
+    "regeneration_notes": "Hook: regenerate the departure board with no legible fake text. Either use a shallow-focus board where rows are soft bokeh blur with only red status bars, or composite a real, clean board graphic with plausible flight codes (e.g. 'LHR 08:45 CANCELLED'). Make the reflection physically plausible: a faint, angled reflection on glass with her face sharp enough to read worry. Alternatively, open on a close-up of her face lit red by the board. Simplify the hook overlay to a single line ('Flight cancelled.'). Scene 2: remove the floating green artifact; prompt 'clean background, no UI elements in scene'. Scene 4: prompt 'natural skin texture, aircraft at realistic distance on apron', and place the checklist in the upper third over the sky so it doesn't cover her hands or coffee. End card: drop the period from the CTA button.",
     "average": 6.2,
     "pass": false
   },
-  "evaluatedAt": "2026-11-04T01:50:16.124Z"
+  "evaluatedAt": "2026-11-04T04:33:09.638Z"
 }

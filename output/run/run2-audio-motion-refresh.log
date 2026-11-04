@@ -1,0 +1,36 @@
+
+> nomadguard-creative-operator@1.0.0 cli
+> tsx src/cli.ts reassemble 20261104042628-4bfc3f
+
+{"t":"2026-11-04T04:41:04.830Z","level":"info","msg":"llm:audio-plan","data":{"model":"claude-opus-5-5","ms":15996,"in":1121,"out":1186,"stop":"end_turn"}}
+{"t":"2026-11-04T04:41:04.830Z","level":"warn","msg":"llm:audio-plan attempt 1 rejected","data":{"errors":["voiceover has 31 words; max 30 to fit 13.142s at a calm pace."]}}
+{"t":"2026-11-04T04:41:14.189Z","level":"info","msg":"llm:audio-plan","data":{"model":"claude-opus-5-5","ms":9359,"in":1709,"out":887,"stop":"end_turn"}}
+{"t":"2026-11-04T04:41:27.713Z","level":"info","msg":"status","data":{"id":"20261104042628-4bfc3f","status":"ASSEMBLING"}}
+{"t":"2026-11-04T04:41:43.280Z","level":"info","msg":"llm:motion-spec","data":{"model":"claude-opus-5-5","ms":8289,"in":1859,"out":742,"stop":"end_turn"}}
+{"t":"2026-11-04T04:42:34.195Z","level":"info","msg":"status","data":{"id":"20261104042628-4bfc3f","status":"EVALUATING"}}
+{"t":"2026-11-04T04:43:03.750Z","level":"info","msg":"llm:creative-qa","data":{"model":"claude-opus-5-5","ms":27752,"in":6021,"out":2316,"stop":"end_turn"}}
+{"t":"2026-11-04T04:43:03.752Z","level":"info","msg":"status","data":{"id":"20261104042628-4bfc3f","status":"NEEDS_REVIEW"}}
+{
+  "id": "20261104042628-4bfc3f",
+  "status": "NEEDS_REVIEW",
+  "provider": "fal",
+  "outputs": {
+    "strategy": "strategy.json",
+    "storyboard": "storyboard_2.json",
+    "videoRequest": "video_request_2.json",
+    "generated": "generated_2.mp4",
+    "final": "final.mp4",
+    "qa": "qa_2.json",
+    "audioPlan": "audio_plan.json",
+    "voiceover": "voiceover.mp3",
+    "music": "music.mp3",
+    "motionSpec": "motion_spec.json"
+  },
+  "generation": {
+    "submissions": 2,
+    "regenerations": 1,
+    "lastProviderState": "COMPLETED",
+    "qaNotes": "- Garbled AI text across the departure board in both hook frames\n- Face reflection looks like a semi-transparent overlay, not a real reflection\n- Small stray green UI element floating mid-frame in scene 2 (~center, above her head)\n- Scene 4 checklist overlays her hand/coffee cup; upper third is empty sky while the text crowds the subject\n- Scene 4 face over-smoothed/plastic compared to scene 3\n- Airplane wing/engine oddly scaled and pressed against the window in scene 4\n- Hook overlay copy stack (Departures + CANCELLED + STRANDED.) is cluttered\n- CTA button 'Get NomadGuard.' has an odd trailing period\nHook: regenerate the departure board with no legible fake text. Either use a shallow-focus board where rows are soft bokeh blur with only red status bars, or composite a real, clean board graphic with plausible flight codes (e.g. 'LHR 08:45 CANCELLED'). Make the reflection physically plausible: a faint, angled reflection on glass with her face sharp enough to read worry. Alternatively, open on a close-up of her face lit red by the board. Simplify the hook overlay to a single line ('Flight cancelled.'). Scene 2: remove the floating green artifact; prompt 'clean background, no UI elements in scene'. Scene 4: prompt 'natural skin texture, aircraft at realistic distance on apron', and place the checklist in the upper third over the sky so it doesn't cover her hands or coffee. End card: drop the period from the CTA button."
+  },
+  "dir": "runs/20261104042628-4bfc3f"
+}

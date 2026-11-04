@@ -1,0 +1,49 @@
+{
+  "submission": 1,
+  "technical": {
+    "exists": true,
+    "playable": true,
+    "duration": 14.04,
+    "resolution": "1080x1920",
+    "aspect_ratio": "9:16",
+    "has_audio": true,
+    "valid": true,
+    "errors": []
+  },
+  "creative": {
+    "realism": {
+      "score": 7,
+      "reason": "Photoreal faces, skin, and knit texture with no obvious hand or face melt. The concourse and hotel shots are clean. Minor oddities: the hook phone is soft and partially cropped, there is a ghosted mug reflection in the window, and the empty airport looks slightly CG-sterile."
+    },
+    "visual_consistency": {
+      "score": 6,
+      "reason": "Earrings and the cream sweater carry through the close-ups. Hair changes from long and straight (hook) to shoulder-length waves (scene 2). In scene 3 she wears a thin white blouse and heels instead of the chunky knit. Her face in the robe shot reads slightly different and older."
+    },
+    "brief_adherence": {
+      "score": 6,
+      "reason": "The emotional arc matches: stress, relief, walking off, calm payoff with the sky in the upper third. However, the hook never shows the deserted gate or the carry-on at her feet, so 'stranded' relies entirely on text. The lower-phone-and-exhale beat is unclear. The protection and insurance promise only appears on the end card."
+    },
+    "hook_strength": {
+      "score": 6,
+      "reason": "A tight distressed face plus 'Stranded at 2am.' is relatable. Without visible airport or departure-board context, the first frame reads as someone on a phone call at night. The caption is small and low-contrast, and there is no pattern interrupt."
+    },
+    "advertising_quality": {
+      "score": 6,
+      "reason": "The look is polished and premium, and the relief arc is clear. The product is invisible: no app UI or claim screen, so '→ sorted by 2:05' doesn't say what was sorted or by whom. The brand appears only at 13s with no logo. The end card is a generic blurred plate with a fake-button CTA and no offer or action verb."
+    },
+    "issues": [
+      "No airport/gate or carry-on visible in the hook; 'stranded' context is text-only",
+      "Hair length and style drift between hook and scene 2",
+      "Wardrobe changes from chunky knit sweater to thin blouse with heels in the concourse shot",
+      "Face in the hotel robe scene looks like a slightly different person",
+      "Phone screen never shows the NomadGuard app, so the product role is unclear",
+      "Ghost duplicate mug reflection in the window in scene 4",
+      "Captions small and thin with weak contrast over the light sweater",
+      "End card lacks a logo; the CTA box looks like a button but has no clear action"
+    ],
+    "regeneration_notes": "Hook: open on a medium-close shot at a deserted airport gate at night, with a departure board showing 'CANCELLED' in red soft-focus behind her and a black carry-on beside her knee. She lowers the phone from her ear and exhales. Lock character identity across all shots: same woman, long straight dark hair past the shoulders, gold hoops, cream chunky ribbed crewneck sweater, dark trousers, white sneakers (no heels). Scene 2: include an over-shoulder insert of the phone screen showing a clean NomadGuard app card reading 'Hotel booked · Covered' with a check mark. Scene 3: keep the chunky knit sweater visible from behind. Scene 4: use the same face and hair as the reference (hair tied back is fine), and avoid duplicate reflections in the window. Text: increase caption size and weight and add a subtle shadow or pill background. End card: add the NomadGuard logo mark and an explicit CTA such as 'Get covered in 2 minutes'.",
+    "average": 6.2,
+    "pass": false
+  },
+  "evaluatedAt": "2026-11-04T01:50:16.124Z"
+}

@@ -8,14 +8,18 @@ brief.json → Strategy (Claude: 3 angles, pick one) → Storyboard (Claude: sho
   → Edit (ffmpeg) → Motion graphics (Remotion) → QA (ffprobe + Claude vision) → FINALIZED / NEEDS_REVIEW / FAILED
 ```
 
-**Final ad:** [`output/nomadguard-ad.mp4`](output/nomadguard-ad.mp4) (14.9s, 1080x1920, VO + music, -14 LUFS).
-All artifacts of the run that produced it are in [`output/run/`](output/run/).
+**Final ad:** [`output/nomadguard-ad.mp4`](output/nomadguard-ad.mp4) (13.5s, 1080x1920, VO + music, -14 LUFS).
+It was produced by a single `npm start`; every artifact of that run is in [`output/run/`](output/run/).
 
 ## The shipped run
-- **Concept:** "POV: The 2 A.M. Gate" (`output/run/strategy.json` has all 3 angles and the selection rationale).
-- **3 renders:** creative QA scored them 6.2 (wardrobe drift), 6.6 (consistent identity) and 5.8 (face drift in the last shot). Contact sheets are in `output/run/contact-sheets/`.
-- **Shipped render 2**, re-edited after review with VO, music and the motion layer. With the motion layer, QA scored it 7.2, 6.6 and 6.8 across re-runs, so the job sits at `NEEDS_REVIEW` and a human picked it.
-- **Known flaws:** faint pseudo-text on the blurred departure board, and a blank phone screen in shot 2.
+- **Concept: "The Calm One at the Gate"**, picked from 3 angles (`output/run/strategy.json`).
+  - *Why:* "everyone panics but her" tells the whole value proposition in one frame, with sound off. It needs one traveler and simple actions (look, exhale, smile, walk), which AI video renders well.
+  - *Audience insight:* frequent travelers aged 25–40 have all been the panicked person at the gate and want to be the composed one, so the ad sells that identity, not a policy.
+  - *Why it works on social:* the cancellation moment is instantly recognizable; the contrast format is native, meme-able and shareable; the lounge payoff carries the premium feel.
+- **Pipeline path:** render 1 scored 6.2 on creative QA, which triggered an automatic re-storyboard with the QA findings and render 2 (6.4 → 6.6 after the audio fix below). It ended in `NEEDS_REVIEW` and a human approved it.
+- **Bug this run exposed (fixed, with a test):** the automatic re-render reused the VO, music and on-screen copy written for the *first* storyboard. Everything derived from a storyboard is now regenerated with it. For the shipped video, the VO/music/copy were regenerated for render 2 (`run2-audio-motion-refresh.log`).
+- **Known flaws:** garbled pseudo-text on the departure board and the plane's livery, and her blazer turns into a long coat in shot 3.
+- **Earlier iteration:** [`output/earlier-run-2am-gate/`](output/earlier-run-2am-gate/) is the first concept ("POV: The 2 A.M. Gate"): 3 renders, the 512-char prompt limit, the duration fix, and where VO, music and the motion layer were added after review.
 
 ## Setup and run
 

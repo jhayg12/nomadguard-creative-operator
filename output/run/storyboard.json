@@ -1,0 +1,45 @@
+{
+  "title": "The Calm One at the Gate",
+  "style_bible": {
+    "character": "Woman, 32, sleek dark chin-length bob, warm olive skin, slim build, composed expression.",
+    "wardrobe": "Cream trench coat over a black turtleneck, gold stud earrings, black carry-on.",
+    "setting": "Modern glass airport gate with a red-glowing departure board, then a quiet premium lounge with runway views.",
+    "color_grade": "Cool steel-blue terminal tones that warm to soft gold in the lounge, rich contrast.",
+    "lens_and_light": "Shallow-depth 50-85mm look, cold fluorescent gate light shifting to warm window light."
+  },
+  "scenes": [
+    {
+      "duration": 3,
+      "description": "Hook: the departure board glows red with a cancellation. Her face is reflected in the glass while blurred travelers slump at the gate seats behind her.",
+      "camera": "Slow push-in close-up on the reflection in the board glass.",
+      "on_screen_text": "Flight cancelled.",
+      "video_prompt": "Woman, 32, sleek dark chin-length bob, cream trench, black turtleneck: her face reflected in the glass of a departure board glowing red, abstract blurred red rows, no legible text. Behind her, out-of-focus travelers slump at gate seats, carry-on in frame. Slow push-in close-up. Cold fluorescent light, red glow on her face."
+    },
+    {
+      "duration": 2,
+      "description": "She glances at her phone and exhales, shoulders relaxing, while blurred travelers behind her pace and rub their temples.",
+      "camera": "Static medium shot, shallow depth of field.",
+      "on_screen_text": "Everyone panics.",
+      "video_prompt": "Woman, 32, sleek dark chin-length bob, cream trench, black turtleneck: at an airport gate she glances down at her phone, screen glowing and angled away, then exhales, shoulders dropping. Behind her, blurred travelers pace and rub their temples. Static medium shot, shallow depth of field. Cool terminal light, soft key on her face."
+    },
+    {
+      "duration": 3,
+      "description": "She looks up with a small knowing smile and turns to walk away from the stressed crowd.",
+      "camera": "Slow dolly-in close-up.",
+      "on_screen_text": "She doesn't.",
+      "video_prompt": "Woman, 32, sleek dark chin-length bob, cream trench, black turtleneck: close-up, she lifts her eyes from her phone, breaks into a small knowing smile and turns to walk away. Blurred gate crowd and window light behind her. Slow dolly-in. Warm light shifts onto her face against a cool blue background."
+    },
+    {
+      "duration": 3,
+      "description": "Location change: she walks calmly through a quiet premium lounge holding a coffee, with the runway behind the windows. The upper third stays clean for the end card.",
+      "camera": "Smooth backward tracking shot, medium-wide, subject in lower third.",
+      "on_screen_text": "Covered when plans fall apart.",
+      "video_prompt": "Woman, 32, sleek dark chin-length bob, cream trench, black turtleneck: location change to a quiet premium airport lounge; she walks calmly toward a floor-to-ceiling window holding a ceramic coffee cup, runway and planes soft beyond. Smooth backward tracking, medium-wide, her in lower third, clean bright sky in upper third. Warm golden afternoon light."
+    }
+  ],
+  "end_card": {
+    "headline": "Be the calm one.",
+    "cta": "Get NomadGuard."
+  },
+  "sound": "Open on tense airport ambience: a muffled wordless announcement chime, rolling suitcases and a low collective groan. On her exhale, a warm low synth pulse enters. It builds into a sleek, minimal, confident beat as the noise fades to hushed lounge calm with a soft cup clink."
+}

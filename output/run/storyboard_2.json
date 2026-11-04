@@ -1,45 +1,45 @@
 {
-  "title": "POV: The 2 A.M. Gate (Revised)",
+  "title": "The Calm One at the Gate (v2 fix)",
   "style_bible": {
-    "character": "One woman, about 30, long straight dark hair past the shoulders worn down, slim build, natural makeup, small gold hoop earrings.",
-    "wardrobe": "Cream chunky ribbed crewneck sweater, dark trousers and white sneakers in every shot (no heels, no blouse, no robe).",
-    "setting": "A deserted airport gate and concourse at night, then a calm sunlit hotel room the next morning.",
-    "color_grade": "Cool desaturated teal at the airport, shifting to warm golden sunrise tones in the hotel with clean premium contrast.",
-    "lens_and_light": "35-50mm shallow depth of field, soft motivated light: dim fluorescent and screen glow at night, golden side light at sunrise."
+    "character": "One woman, about 30, olive skin, dark wavy shoulder-length hair, slim build, composed expression.",
+    "wardrobe": "Camel wool coat over a plain white crew tee, black trousers and a matte black carry-on with no logos.",
+    "setting": "A modern glass-walled airport gate with soft-focus seating, then a quiet premium lounge with an aircraft far out on the apron.",
+    "color_grade": "Clean premium grade: cool teal-grey terminal tones, a red accent only in the hook, warm honey tones in the lounge.",
+    "lens_and_light": "35-50mm shallow depth of field, natural skin texture and soft motivated light, with no mixed-in text or graphics."
   },
   "scenes": [
     {
       "duration": 3,
-      "description": "Hook: a stranded traveler at a dead-empty gate at 2am lowers the phone from her ear and exhales. Her black carry-on is beside her knee, empty gate seats and runway lights sit behind her, and a departure board glows red but is fully blurred.",
-      "camera": "Handheld medium-close, slight drift, starting close on her face and phone.",
-      "on_screen_text": "Stranded at 2am.",
-      "video_prompt": "Woman, 30, long straight dark hair past shoulders, gold hoops, cream chunky ribbed sweater: seated at a deserted airport gate at night, lowers phone from her ear and exhales, black carry-on beside her knee, empty gate seats, heavily blurred red-glowing departure board behind, no legible text. Handheld medium-close, slight drift. Dim cool fluorescent light, runway lights in dark window."
+      "description": "Hook, opening in the disruption: a tight close-up of her face lit red by the departure board as the news lands. The board sits behind her as soft bokeh with only red status bars and no legible characters. There is no glass reflection. Blurred travelers slump at the gate seats behind her.",
+      "camera": "Slow push-in on a tight close-up, 50mm, very shallow focus.",
+      "on_screen_text": "Flight cancelled.",
+      "video_prompt": "Woman, 30, dark wavy shoulder-length hair, camel coat, white tee: close-up, she looks up, brow tightening in worry, face lit red by departure board glow. Behind her, soft-focus gate seats and two blurred travelers slumping; board is only red bokeh bars, no legible characters. Slow push-in, shallow depth of field. Red key light, cool terminal fill, natural skin texture."
+    },
+    {
+      "duration": 2,
+      "description": "Contrast beat: she glances at her phone, which is held low with the screen angled away and glowing softly. She exhales, her shoulders drop and a small smile appears. Stressed travelers pace behind her, out of focus. The background is clean, with no UI elements or floating graphics.",
+      "camera": "Static medium close-up with a slight handheld drift, 35mm.",
+      "on_screen_text": "Already covered.",
+      "video_prompt": "Woman, 30, dark wavy shoulder-length hair, camel coat, white tee: medium close-up at gate seats, glances at phone held low, screen angled away with soft glow, exhales, shoulders drop, faint smile. Blurred travelers pace and rub temples behind. Clean background, no UI elements, no floating graphics. Static camera, slight drift. Cool terminal light, warm rim light on her face."
+    },
+    {
+      "duration": 2,
+      "description": "She walks away from the chaos toward camera. She pulls her carry-on with one hand and holds a plain white coffee cup in the other, relaxed and unhurried. The gate crowd stays a soft blur behind her.",
+      "camera": "Smooth backward tracking shot at waist height, 35mm.",
+      "on_screen_text": "Same chaos. Different day.",
+      "video_prompt": "Woman, 30, dark wavy shoulder-length hair, camel coat, white tee: walks toward camera through bright terminal, pulling black carry-on, plain white paper coffee cup in other hand, relaxed smile. Blurred stressed travelers at gate seats far behind, out of focus. Smooth backward tracking shot, waist height. Daylight through tall windows, soft shadows, natural skin texture."
     },
     {
       "duration": 3,
-      "description": "Over-shoulder insert: she glances at her phone, which shows only a soft out-of-focus glow. Her face relaxes into a relieved smile. The overlay carries the product role.",
-      "camera": "Over-the-shoulder from behind her left shoulder, slow push-in.",
-      "on_screen_text": "Sorted by 2:05. Hotel covered.",
-      "video_prompt": "Woman, 30, long straight dark hair past shoulders, gold hoops, cream chunky ribbed sweater: same night gate, glances down at her phone, tension melts into a small relieved smile. Over-shoulder from behind her left shoulder, phone screen a soft blank glow, out of focus and angled away. Slow push-in. Dim cool gate light, warm screen glow on her cheek."
-    },
-    {
-      "duration": 3,
-      "description": "She walks away down the empty concourse rolling her carry-on. The chunky cream sweater and long dark hair are clearly visible from behind as she moves toward warmer light.",
-      "camera": "Steady low gimbal follow from behind at walking pace.",
-      "on_screen_text": "Delays happen. Costs covered.",
-      "video_prompt": "Woman, 30, long straight dark hair past shoulders, gold hoops, cream chunky ribbed sweater, dark trousers, white sneakers: walks away from camera down an empty night concourse, rolling a black carry-on, hair over the chunky knit clearly visible from behind. Low gimbal follow at walking pace. Glossy floor, cool overhead light warming toward the exit ahead."
-    },
-    {
-      "duration": 4,
-      "description": "Resolution at the hotel the next morning. She wears the same sweater, with the same hair and face. She stands beside a sunlit window, sips from a matte mug and smiles calmly. The window glass sits out of frame, so there are no reflections. A clean wall above her leaves space for the end card.",
-      "camera": "Static medium shot from the side with a gentle slow drift; upper third left empty.",
-      "on_screen_text": "",
-      "video_prompt": "Woman, 30, long straight dark hair past shoulders, gold hoops, cream chunky ribbed sweater (location change: hotel room next morning, same outfit and hair): stands beside a sunlit window, sips from a matte white mug, calm confident smile. Side medium shot, glass out of frame, no reflections. Static, slow drift. Warm golden sunrise light, plain soft-lit wall fills empty upper third."
+      "description": "Resolution in the lounge (location change, same wardrobe and hair). She sits by a floor-to-ceiling window, sips her coffee and lowers the cup with a calm, confident smile. An aircraft is parked at a realistic distance and scale out on the apron. The upper third is clean, soft sky. The editor places the overlay line in that upper third so it never covers her face, hands or cup. Skin should have natural texture and match shot 3.",
+      "camera": "Slow push-in at eye level, 50mm, framed low so the upper third stays open.",
+      "on_screen_text": "Delays. Cancellations. Covered.",
+      "video_prompt": "Woman, 30, dark wavy shoulder-length hair, camel coat, white tee: now in quiet premium airport lounge, same outfit and hair. Seated low in frame by floor-to-ceiling window, sips coffee, lowers cup, calm confident smile. Aircraft parked at realistic distance and scale on apron, far beyond glass. Upper third clean soft sky. Slow push-in, eye level. Warm interior light, soft daylight, natural skin texture."
     }
   ],
   "end_card": {
-    "headline": "Because delays happen. Be covered when they do.",
-    "cta": "Get covered in 2 minutes"
+    "headline": "Be the calm one.",
+    "cta": "Get NomadGuard"
   },
-  "sound": "Shots 1-2: quiet airport hum, distant PA murmur with no words and a soft tired exhale. A single warm piano note lands on her smile. Shot 3: rolling suitcase wheels, then a minimal modern pulse builds. Shot 4: soft morning birds and a light clink of the mug as the music resolves into a confident, premium sting under the end card."
+  "sound": "Shots 1-2 use real terminal ambience: a muffled boarding chime, a low crowd murmur and one soft collective groan. On her exhale, the noise ducks and a warm, minimal electronic pulse with a soft piano motif fades in. Shots 3-4 settle into the gentle hush of the lounge with a light cup clink, and the music resolves on the end card. No voiceover."
 }

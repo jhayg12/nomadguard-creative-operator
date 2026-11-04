@@ -1,0 +1,24 @@
+{
+  "provider": "fal-kling-v3-pro",
+  "aspectRatio": "9:16",
+  "audio": true,
+  "negativePrompt": "text, letters, words, subtitles, captions, logo, watermark, readable signage, UI, numbers, distorted face, extra fingers, deformed hands, cartoon, CGI, 3d render, low quality, blur, flicker, morphing",
+  "shots": [
+    {
+      "durationSec": 3,
+      "prompt": "Woman, 30, olive skin, dark wavy shoulder-length hair, gold hoops: in a cream knit sweater, she lowers her phone and exhales, exhausted. Black carry-on at her feet, empty rows of seats at a dark airport gate at night, blurred runway lights in the window. Handheld close-up with a slight sway. Cool blue overheads, soft phone glow on her face with the screen angled away. Photorealistic live-action commercial, natural skin texture, shallow depth of field, subtle film grain."
+    },
+    {
+      "durationSec": 3,
+      "prompt": "Woman, 30, olive skin, dark wavy shoulder-length hair, gold hoops: in a cream knit sweater, seated at an empty night gate, she looks at the glowing phone and her tense face softens into a relieved smile as her shoulders drop. Phone screen faces away and is out of focus. Slow push-in from medium close-up to close-up. Cool blue ambient light warmed by the phone glow. Photorealistic live-action commercial, natural skin texture, shallow depth of field, subtle film grain."
+    },
+    {
+      "durationSec": 2,
+      "prompt": "Woman, 30, olive skin, dark wavy shoulder-length hair, gold hoops: in a cream knit sweater, she walks calmly away down an empty, polished airport concourse at night, pulling a black carry-on. Reflective floor with soft pools of light. Smooth low-angle tracking shot from behind. Cool blue light shifting slightly warmer ahead of her. Photorealistic live-action commercial, natural skin texture, shallow depth of field, subtle film grain."
+    },
+    {
+      "durationSec": 4,
+      "prompt": "Woman, 30, olive skin, dark wavy shoulder-length hair, gold hoops: in a plush white hotel robe, she stands by a floor-to-ceiling window holding a white coffee mug and smiles calmly at a city skyline at sunrise. Minimal premium hotel room. Medium shot framed low, bright empty sky in the upper third, gentle slow push-in. Warm golden backlight with a soft glow on her face. Photorealistic live-action commercial, natural skin texture, shallow depth of field, subtle film grain."
+    }
+  ]
+}

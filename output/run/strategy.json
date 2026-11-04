@@ -1,31 +1,31 @@
 {
   "angles": [
     {
-      "name": "The Shrug",
-      "target_emotion": "Smug relief / confidence",
-      "hook": "Close-up of a departures board flickering to red as a nearby traveler groans, but our traveler just glances up, smiles, and sips her coffee.",
-      "concept": "While delay chaos is implied off-screen, our calm traveler taps her phone once (no visible UI), then is shown relaxing in a premium lounge chair, unbothered. Edited text: 'Flight cancelled? Covered.'",
-      "cta": "Travel unbothered. Get NomadGuard."
+      "name": "The Calm One at the Gate",
+      "target_emotion": "Smug relief / quiet confidence",
+      "hook": "Close-up of a red departure board flipping to cancelled as a traveler's face reflects in the glass; a collective groan is implied by a few blurred figures slumping behind her.",
+      "concept": "While blurred travelers behind her pace and rub their temples, our traveler glances at her phone, exhales, smiles, and calmly walks off to a sleek airport lounge with coffee in hand. Contrast does the work: same disruption, completely different day.",
+      "cta": "Be the calm one. Get NomadGuard."
     },
     {
-      "name": "Split-Screen Fate",
-      "target_emotion": "Contrast-driven anxiety to relief",
-      "hook": "Split screen of the same traveler at the same gate: on the left he slumps over his suitcase and stares at a receipt, on the right he looks calm.",
-      "concept": "Left side: stress, crumpled receipts, rubbing his temples on an airport floor. Right side: he checks into a sleek hotel room and drops onto the bed smiling. Text overlays label them 'Without' and 'With NomadGuard'.",
-      "cta": "Pick your version. Protect your next trip."
+      "name": "The Wallet Wince",
+      "target_emotion": "Anxiety turning to relief (loss aversion)",
+      "hook": "Extreme close-up of a traveler's hand hesitating over a hotel desk bell at midnight, suitcase beside him, his face tight with dread at the cost of an unplanned night.",
+      "concept": "He winces as he slides his card across the counter, then his phone buzzes; he reads it, his shoulders drop, and he grins and collapses onto a crisp hotel bed. Edit overlays carry the 'covered' message so the model never renders numbers or UI.",
+      "cta": "Delays happen. Paying for them doesn't have to. Try NomadGuard."
     },
     {
-      "name": "POV: The 2 A.M. Gate",
-      "target_emotion": "Empathy / 'that's so me' recognition",
-      "hook": "Handheld POV-style shot of an empty, dimly lit gate at night. Our exhausted traveler lowers her phone and exhales, with a carry-on at her feet.",
-      "concept": "The relatable worst moment shifts as her expression softens into a relieved smile. Cut to her in a warm hotel robe by a window at sunrise, coffee in hand. Edited text: 'Stranded at 2am → sorted by 2:05.'",
-      "cta": "Because delays happen. Be covered when they do."
+      "name": "Turn the Delay Into a Day Off",
+      "target_emotion": "Aspirational freedom / joy",
+      "hook": "A traveler sprinting through a terminal stops dead, looks up at an off-screen board, and freezes with a split-second 'oh no' face.",
+      "concept": "Smash cut: same traveler, now unbothered, sipping a spritz on a sunlit terrace overlooking the city she was only meant to pass through. Protection reframes disruption as a bonus adventure.",
+      "cta": "Plans change. You're covered. NomadGuard."
     }
   ],
-  "selected_index": 2,
+  "selected_index": 0,
   "selection": {
-    "why_selected": "It opens on a deeply relatable disruption and pays off with a clear emotional flip. It uses only one traveler, two quiet locations and simple facial beats, so AI video renders it cleanly without crowds, boards or UI.",
-    "audience_insight": "Frequent travelers aged 25-40 have all lived through the stranded late-night gate. The fear isn't the delay itself but being alone with the cost and the hassle, so showing it solved fast hits the real pain.",
-    "why_it_works_on_social": "The POV-style, 'that's so me' opening mirrors native TikTok and Reels content, so it stops the scroll without feeling like an ad. Because the story is told through her face and the before/after setting, it reads with the sound off, and the premium sunrise payoff carries the brand feel."
+    "why_selected": "The side-by-side contrast between the stressed blurred background and the calm hero tells the whole value proposition in one frame, with sound off and no reliance on text or UI. It needs one traveler, one or two locations, and simple actions: look, exhale, smile, walk.",
+    "audience_insight": "Frequent 25-40 travelers have all been the panicked person at the gate, and they badly want to be the composed, in-control one; the ad sells that identity, not a policy.",
+    "why_it_works_on_social": "The cancellation moment is instantly recognizable and stops the scroll, and the 'everyone panics but her' contrast is a native, meme-able format that drives saves and shares. The premium lounge payoff delivers the polished, confident brand feel in a few seconds."
   }
 }
