@@ -5,7 +5,6 @@
   "scripts": {
     "start": "tsx src/cli.ts run",
     "cli": "tsx src/cli.ts",
-    "ui": "tsx src/server.ts",
     "test": "vitest run",
     "typecheck": "tsc --noEmit",
     "demo:offline": "tsx scripts/offline-demo.ts"

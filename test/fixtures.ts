@@ -53,9 +53,9 @@ export const audioPlan = {
 
 export const motionSpec = {
   hook: { kicker: "2:00 AM", stamp: "CANCELLED", headline: "STRANDED." },
-  product_card: { title: "Hotel booked", body: "Rebooked on the first flight out.", badge: "Covered" },
-  kinetic: { line1: "Delays happen.", line2: "You're covered.", highlight: "covered." },
-  checklist: ["Rebooked", "Hotel covered", "Costs covered"],
+  product_card: { title: "Hotel booked", body: "Rebooked on the first flight out.", badge: "Sorted" },
+  kinetic: { line1: "Delays happen.", line2: "You're protected.", highlight: "protected." },
+  checklist: ["Rebooked", "Hotel paid", "Bags tracked"],
 };
 
 export const happyLlm = () =>

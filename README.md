@@ -39,7 +39,7 @@ npm test
 ```
 
 Flags: `--provider fal|mock`, `--no-motion`, `--no-creative-qa`, `--max-regens N`, `--brief other.json`.
-Each job writes everything to `runs/<jobId>/` (`job.json` state + history, every intermediate file).
+Each job writes everything to `runs/<jobId>/` (`job.json` state + history, every intermediate file). `runs/` is created on the first run and is not committed; `output/` holds the copies committed for review. `runs/` is created on the first run and is not committed; `output/` holds the copies committed for review.
 
 ## How to generate a video
 
