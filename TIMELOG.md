@@ -8,6 +8,6 @@ Active work only. Excludes waiting on API billing top-ups and video render/queue
 | - | 09:15 | 09:45 | paused: Anthropic API credit top-up (not counted) |
 | 2 | 09:45 | 10:06 | real runs: planning review, 512-char limit, regeneration redesign, duration fix, reassemble/regenerate, docs |
 
-| 3 | 11:20 | 11:37 | review feedback: voice-over + music (SCORING step), animated captions + end card, -14 LUFS mix |
+| 3 | 11:20 | 12:19 | review feedback: VO + music (SCORING), -14 LUFS mix, Remotion motion-graphics layer + motion director step |
 
 Render queue time inside session 2 (not counted): about 3.5 min × 3 renders.
