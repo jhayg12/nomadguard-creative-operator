@@ -277,8 +277,9 @@ async function runStep(job: Job, deps: RunnerDeps, o: RunnerOptions): Promise<Jo
         // shots within all the rules (prompt limits, no generated text). Pasting raw notes into prompts broke both.
         job.generation.regenerations++;
         job.generation.qaNotes = [...creative.issues.map((i) => `- ${i}`), creative.regeneration_notes].filter(Boolean).join("\n");
-        job.outputs.storyboard = undefined;
-        job.outputs.generated = undefined;
+        // Everything derived from the old storyboard must be regenerated too: VO script, VO, music and
+        // on-screen copy were written for the old shots (bug found by a fresh end-to-end run).
+        for (const k of ["storyboard", "generated", "audioPlan", "voiceover", "music", "motionSpec"] as const) job.outputs[k] = undefined;
         job.outputs.final = undefined;
         await copyFile(final, join(dir, `final_${job.generation.submissions}.mp4`));
         await store.save(job);

@@ -119,7 +119,10 @@ const SYSTEM = `You are a strict creative director reviewing a paid social video
 You see sampled frames in time order. Score honestly on a 1-10 scale; 7 means "good enough to run as a paid ad".
 Look for: AI artifacts (warped hands/faces, melting objects, garbled text), identity drift of the main character
 between shots, whether the first frames stop the scroll, whether the story and brand promise read with sound off,
-and whether it feels premium and trustworthy. Be specific and brief.`;
+and whether it feels premium and trustworthy. Be specific and brief.
+Note: on-screen text, the in-app notification card, checklist and end card are motion graphics added in editing
+on purpose. Judge them on design and legibility. The "no text/UI" rule applies only to the AI-generated footage
+underneath (e.g. garbled signage, fake phone UI rendered by the video model).`;
 
 export async function creativeQA(
   llm: StructuredLlm,

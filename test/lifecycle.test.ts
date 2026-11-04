@@ -6,7 +6,7 @@ import { JobStore } from "../src/job/store.js";
 import { runJob } from "../src/job/runner.js";
 import { MockVideoProvider } from "../src/providers/mock.js";
 import { MockAudioProvider } from "../src/providers/mockAudio.js";
-import { brief, happyLlm } from "./fixtures.js";
+import { audioPlan, brief, goodScores, happyLlm, storyboard, strategy, StubLlm } from "./fixtures.js";
 
 process.env.QUIET = "1";
 const fast = { pollIntervalMs: 5, backoffBaseMs: 1, maxStepAttempts: 2, motion: false }; // Remotion render covered by the offline demo
@@ -40,5 +40,23 @@ describe("job lifecycle", () => {
     const qa = await store.readJson<any>(done, "qa.json");
     expect(qa.technical.valid).toBe(true);
     expect(qa.technical.resolution).toBe("1080x1920"); // 720x1280 mock footage normalised by assembly
+  }, 60_000);
+
+  it("a QA-driven re-render regenerates everything derived from the old storyboard (VO, music, copy)", async () => {
+    const root = await mkdtemp(join(tmpdir(), "ng-"));
+    const store = new JobStore(root);
+    const provider = new MockVideoProvider(join(root, "_mock"));
+    const weak = { ...goodScores, realism: { score: 4, reason: "r" }, issues: ["identity drift"], regeneration_notes: "lock identity" };
+    const llm = new StubLlm({ strategy: [strategy], storyboard: [storyboard], "audio-plan": [audioPlan], "creative-qa": [weak, goodScores] });
+    const job = await store.create(brief, "mock");
+
+    const done = await runJob(job, { store, llm, provider, audio: new MockAudioProvider(join(root, "_mock")), options: fast });
+
+    expect(done.status).toBe("FINALIZED");
+    expect(provider.submitted).toBe(2);
+    const calls = (label: string) => llm.calls.filter((c) => c.label === label).length;
+    expect(calls("storyboard")).toBe(2);
+    expect(calls("audio-plan")).toBe(2); // was 1 before the fix: stale VO reused on the new footage
+    expect((llm.calls.filter((c) => c.label === "storyboard")[1].content as string)).toMatch(/identity drift/);
   }, 60_000);
 });
