@@ -25,7 +25,9 @@ export async function assemble(opts: {
   maxSeconds: number;
   voiceover?: string;
   music?: string;
-}): Promise<{ output: string; duration: number }> {
+  /** false = no burned-in text (the Remotion motion layer draws all text instead) */
+  textOverlay?: boolean;
+}): Promise<{ output: string; duration: number; rendered: number; cut: number }> {
   const probe = await ffprobeJson(opts.input);
   const v = probe.streams.find((s: any) => s.codec_type === "video");
   if (!v) throw new PipelineError("generated file has no video stream", { retryable: true });
@@ -44,8 +46,8 @@ export async function assemble(opts: {
     `tpad=stop_mode=clone:stop_duration=${END_CARD_SECONDS},` +
     `boxblur=luma_radius=20:luma_power=2:enable='gte(t,${at})',` +
     `eq=brightness=-0.08:contrast=0.85:saturation=0.9:enable='gte(t,${at})',` +
-    `drawbox=x=0:y=0:w=iw:h=ih:color=black@0.28:t=fill:enable='gte(t,${at})',` +
-    `subtitles=filename='${esc(assPath)}':fontsdir='${esc(FONTS_DIR)}'[v]`;
+    `drawbox=x=0:y=0:w=iw:h=ih:color=black@0.28:t=fill:enable='gte(t,${at})'` +
+    (opts.textOverlay === false ? `[v]` : `,subtitles=filename='${esc(assPath)}':fontsdir='${esc(FONTS_DIR)}'[v]`);
 
   const T = total.toFixed(3);
   const inputs = ["-i", opts.input];
@@ -98,7 +100,7 @@ export async function assemble(opts: {
   ]).catch((err) => {
     throw new PipelineError(`ffmpeg assembly failed: ${String(err.stderr ?? err.message).slice(-600)}`, { retryable: false });
   });
-  return { output: opts.output, duration: total };
+  return { output: opts.output, duration: total, rendered, cut: D };
 }
 
 /** Escape a path for use inside an ffmpeg filtergraph option value. */

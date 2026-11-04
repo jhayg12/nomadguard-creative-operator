@@ -130,6 +130,56 @@ export function audioPlanRules(maxSeconds: number, brand: string) {
   };
 }
 
+// ---------- Motion design (code-rendered graphics; the video model never draws text) ----------
+export const MotionSpecSchema = z.object({
+  hook: z.object({
+    kicker: z.string().describe("Tiny context line above the stamp, e.g. a time like '2:00 AM'"),
+    stamp: z.string().describe("ONE alarming word stamped in red, e.g. 'CANCELLED'"),
+    headline: z.string().describe("1-2 word punch line in huge type, e.g. 'STRANDED.'"),
+  }),
+  product_card: z.object({
+    title: z.string().describe("Notification title from the app, 2-4 words"),
+    body: z.string().describe("Notification body, max ~8 words"),
+    badge: z.string().describe("One-word status pill, e.g. 'Covered'"),
+  }),
+  kinetic: z.object({
+    line1: z.string().describe("2-3 words"),
+    line2: z.string().describe("2-3 words"),
+    highlight: z.string().describe("ONE word from line2 to sweep a highlight bar behind"),
+  }),
+  checklist: z.array(z.string()).describe("3 short items (1-2 words) ticked off in the payoff shot"),
+});
+export type MotionSpec = z.infer<typeof MotionSpecSchema>;
+
+const wc = (s: string) => s.split(/\s+/).filter(Boolean).length;
+let brandRe: RegExp | null = null;
+export function motionRules(m: MotionSpec, brand?: string, extraCopy?: string[]): string[] {
+  brandRe = brand ? new RegExp(brand.replace(/[^a-z0-9]/gi, ""), "i") : null;
+  const e: string[] = [];
+  if (wc(m.hook.stamp) !== 1) e.push("hook.stamp must be exactly one word.");
+  if (wc(m.hook.headline) > 2) e.push("hook.headline must be 1-2 words.");
+  if (m.hook.kicker.length > 14) e.push("hook.kicker must be 14 characters or fewer.");
+  if (wc(m.product_card.title) > 4) e.push("product_card.title must be at most 4 words.");
+  if (wc(m.product_card.body) > 8) e.push("product_card.body must be at most 8 words.");
+  if (wc(m.product_card.badge) !== 1) e.push("product_card.badge must be one word.");
+  if (brandRe && brandRe.test(m.product_card.title)) e.push("product_card.title must not repeat the brand name (the card already shows it as the app name).");
+  if (wc(m.kinetic.line1) > 3 || wc(m.kinetic.line2) > 3) e.push("kinetic lines must be at most 3 words each.");
+  if (!m.kinetic.line2.toLowerCase().includes(m.kinetic.highlight.toLowerCase().replace(/[^a-z]/g, "")))
+    e.push("kinetic.highlight must be a word from line2.");
+  if (m.checklist.length !== 3 || m.checklist.some((c) => wc(c) > 2)) e.push("checklist must be exactly 3 items of 1-2 words.");
+  // Repetition dulls the message: no content word more than twice across all on-screen copy.
+  const STOP = new Set(["the", "a", "an", "and", "to", "you", "your", "you're", "is", "of", "on", "for", "in", "it", "it's"]);
+  const counts = new Map<string, number>();
+  const all = [m.hook.kicker, m.hook.stamp, m.hook.headline, m.product_card.title, m.product_card.body, m.product_card.badge, m.kinetic.line1, m.kinetic.line2, ...m.checklist, ...(extraCopy ?? [])];
+  for (const w of all.join(" ").toLowerCase().replace(/[^a-z' ]/g, " ").split(/\s+/).filter((x) => x.length > 2 && !STOP.has(x)))
+    counts.set(w, (counts.get(w) ?? 0) + 1);
+  const over = [...counts].filter(([, n]) => n > 2).map(([w, n]) => `"${w}" x${n}`);
+  if (over.length) e.push(`Words repeated too often across the on-screen copy (incl. end card): ${over.join(", ")}. Max 2 each; vary the wording.`);
+  if (/\d+\s*(%|\$|usd|dollars|minutes?)/i.test(JSON.stringify(m.product_card) + m.checklist.join(" ")))
+    e.push("Do not invent numeric claims (prices, percentages, durations) in the card or checklist.");
+  return e;
+}
+
 // ---------- Part 6: QA ----------
 export const TechnicalQASchema = z.object({
   exists: z.boolean(),

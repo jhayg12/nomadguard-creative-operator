@@ -17,7 +17,7 @@ import { technicalQA } from "./steps/qa.js";
 const HELP = `NomadGuard creative operator
 
 Usage:
-  npm start -- [--brief brief.json] [--provider fal|mock] [--plan-only] [--no-creative-qa] [--max-regens N]
+  npm start -- [--brief brief.json] [--provider fal|mock] [--plan-only] [--no-motion] [--no-creative-qa] [--max-regens N]
   npm run cli -- resume <jobId> [--provider fal|mock]
   npm run cli -- reassemble <jobId>     re-edit + re-QA the existing render (no new video render; adds missing VO/music)
   npm run cli -- regenerate <jobId>     reviewer-approved re-render of a NEEDS_REVIEW job using its QA findings
@@ -57,6 +57,7 @@ async function main() {
       "no-creative-qa": { type: "boolean", default: false },
       "max-regens": { type: "string" },
       "plan-only": { type: "boolean", default: false },
+      "no-motion": { type: "boolean", default: false },
       help: { type: "boolean", short: "h" },
     },
   });
@@ -71,6 +72,7 @@ async function main() {
     audio: makeAudio(provider, store),
     options: {
       creativeQA: !values["no-creative-qa"],
+      motion: !values["no-motion"],
       ...(values["plan-only"] ? { stopAt: "GENERATING" as const } : {}),
       ...(values["max-regens"] !== undefined ? { maxRegenerations: Number(values["max-regens"]) } : {}),
     },

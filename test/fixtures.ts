@@ -51,5 +51,18 @@ export const audioPlan = {
   music_prompt: "minimal warm piano and soft synth, builds gently",
 };
 
+export const motionSpec = {
+  hook: { kicker: "2:00 AM", stamp: "CANCELLED", headline: "STRANDED." },
+  product_card: { title: "Hotel booked", body: "Rebooked on the first flight out.", badge: "Covered" },
+  kinetic: { line1: "Delays happen.", line2: "You're covered.", highlight: "covered." },
+  checklist: ["Rebooked", "Hotel covered", "Costs covered"],
+};
+
 export const happyLlm = () =>
-  new StubLlm({ strategy: [strategy], storyboard: [storyboard], "audio-plan": [audioPlan], "creative-qa": [goodScores] });
+  new StubLlm({
+    strategy: [strategy],
+    storyboard: [storyboard],
+    "audio-plan": [audioPlan],
+    "motion-spec": [motionSpec],
+    "creative-qa": [goodScores],
+  });

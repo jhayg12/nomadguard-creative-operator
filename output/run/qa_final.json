@@ -12,37 +12,39 @@
   },
   "creative": {
     "realism": {
-      "score": 6,
-      "reason": "Hook and concourse shots look plausibly photographic. The departure board is semi-sharp with garbled pseudo-text. The phone in scene 2 is a crisp blank white mockup screen that reads as a template. Scene 4 skin and lighting look AI-smooth."
+      "score": 7,
+      "reason": "Mostly photoreal and well lit with no obvious warped hands or melting objects. The departure board shows pseudo-text that isn't fully blurred, and the phone in scene 2 has a blank white screen that reads as a placeholder."
     },
     "visual_consistency": {
       "score": 7,
-      "reason": "Cream ribbed sweater, gold hoops and long dark hair hold across all shots, and the profile in scene 4 matches the hook. Scene 2 breaks the night mood with flat, daylight-like lighting and a different seat and floor style."
+      "reason": "The cream sweater, gold hoop earrings, long dark hair and black carry-on hold across shots. In scene 2 the hair looks lighter and browner, and the background shifts from a dark night gate to a bright grey carpeted floor, which breaks location continuity."
     },
     "brief_adherence": {
       "score": 6,
-      "reason": "The beat structure and overlays match the storyboard. Several details deviate: the board is not fully blurred, the phone shows a sharp white screen instead of a soft glow, and there is no visible relieved smile in scene 2. In scene 4 the mug covers her smile, the window glass is in frame, and there is no hotel cue."
+      "reason": "The four-beat structure and end card match. Several storyboard beats drift: in the hook she is mid-call rather than lowering the phone and exhaling, and the board is not fully blurred. The scene 2 relieved smile is never shown because her face is out of frame. The '2:05' payoff is dropped. In scene 4 the mug hides her face and there is no calm smile."
     },
     "hook_strength": {
-      "score": 6,
-      "reason": "A relatable 2am airport scenario with a red board, plus a strong 'Stranded at 2am' caption. Her expression is calm and conversational rather than defeated, so there is little visible tension to stop the scroll in frame 1."
+      "score": 7,
+      "reason": "The '2:00 AM' caption, red 'MISSED' stamp and night gate give an instant, relatable pain point. Framing is somewhat static, and 'STRANDED.' lands at 1.5s over a busy area near her hands."
     },
     "advertising_quality": {
-      "score": 6,
-      "reason": "The sound-off story reads clearly (stranded, sorted, covered) and the end card is clean and premium. The emotional payoff is weak because no relief or smile is shown. The product is never visualized beyond a blank phone, and the brand only appears at the end. Close to runnable but not yet polished."
+      "score": 7,
+      "reason": "Clean typography, a native-feeling notification UI, a clear problem-to-relief arc and a solid end card all read with sound off. Two things undercut the premium feel: the blank white phone screen and the missing emotional payoff on her face. Losing the '2:00 to 2:05' contrast weakens the speed claim."
     },
     "issues": [
-      "Departure board shows garbled semi-legible characters instead of a full blur",
-      "Scene 2 phone screen is a sharp blank white mockup that looks unfinished",
-      "Scene 2 lighting and set (daylight tone, grey granite floor) mismatch the 2am night look of the hook and scene 3",
-      "No relieved smile visible in scene 2, where the face is cropped out",
-      "Scene 4 mug covers her mouth, so the calm smile payoff is lost; window glass is visible despite the brief",
-      "Hook expression is neutral and chatty rather than stressed, which weakens the problem beat",
-      "No hotel context in the resolution shot"
+      "Departure board shows garbled pseudo-text rows that are only partly covered by the MISSED stamp; it is not fully blurred",
+      "Scene 2 phone screen is blank white with faint UI fragments and looks unfinished",
+      "Scene 2 never shows her face, so the relief and smile beat is missing",
+      "Hair reads lighter and browner in scene 2 (identity and colour drift)",
+      "Scene 2 background (bright grey carpet) does not match the dark gate from the hook",
+      "The 'Sorted by 2:05' time payoff was dropped, weakening the speed proof",
+      "Hook shows her talking on the phone, not lowering it and exhaling",
+      "Scene 4: the mug covers her mouth and there is no calm smile, so the resolution feels flat",
+      "'Expenses handled' and 'Hotel sorted' claims may need compliance review"
     ],
-    "regeneration_notes": "Hook: 'exhausted woman lowers phone from ear, shoulders drop, tired frustrated exhale, dim night airport gate, departure board in heavy bokeh with no readable characters, red glow only'. Scene 2: 'over-shoulder at the same dark night gate with matching black seats and warm low lighting; phone screen a soft out-of-focus teal-tinted glow with no UI; her cheek and smile visible in three-quarter profile as her face relaxes'. Scene 4: 'hotel room with a bed corner or crisp linens visible, morning sun from an out-of-frame window, she lowers the mug from her lips and smiles calmly, mug held at chest height, natural skin texture, no window glass in frame'. Optionally add a brief branded app UI glow or a NomadGuard logo watermark mid-video for earlier brand recall.",
-    "average": 6.2,
+    "regeneration_notes": "Hook:\n- Keep the departure board heavily defocused, with only red glow and no legible rows.\n- Start with the phone at her ear, then show her lowering it and exhaling, shoulders dropping.\n- Place 'STRANDED.' higher, clear of her hands.\n\nScene 2:\n- Use an over-shoulder shot in the same dark gate, with black seats and night windows behind her.\n- Show her profile with the cheek visibly lifting into a relieved smile.\n- Give the phone screen a soft out-of-focus teal glow, not white.\n- Match the very dark brown, almost black, long straight hair from the hook.\n- Restore the caption 'Sorted by 2:05. Hotel covered.' next to the notification.\n\nScene 4:\n- Have her lower the matte mug from her lips and smile calmly toward the window, with her face unobstructed.\n- Keep the same sweater, gold hoops and hair.",
+    "average": 6.8,
     "pass": false
   },
-  "evaluatedAt": "2026-11-04T03:36:13.483Z"
+  "evaluatedAt": "2026-11-04T04:18:19.048Z"
 }

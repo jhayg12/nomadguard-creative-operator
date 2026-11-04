@@ -22,6 +22,8 @@ Most of the code (~90%) was written by Claude Code from my direction and then re
    - 512 is enforced before submitting
    - provider error bodies are kept in the job error
 
+4. **Motion copy repeated one word everywhere.** The first motion specs leaned on "covered" for the pill, the card, the kinetic line, two checklist items and the end card. QA flagged it, and on reading the frames I agreed. I added a deterministic rule (no content word more than twice across all on-screen copy, end card included) instead of hoping a prompt tweak would hold. On the next run it rejected a spec with "covered" x7 and the model repaired it.
+
 ## How I supervised it
 - Read the generated strategy, storyboard and final prompts before allowing a paid render (`--plan-only`).
 - Checked rendered frames visually, not just exit codes.

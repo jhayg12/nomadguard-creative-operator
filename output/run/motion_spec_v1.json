@@ -1,0 +1,22 @@
+{
+  "hook": {
+    "kicker": "2:00 AM",
+    "stamp": "MISSED",
+    "headline": "STRANDED."
+  },
+  "product_card": {
+    "title": "NomadGuard: Hotel Covered",
+    "body": "Tonight is handled. Rest easy.",
+    "badge": "Covered"
+  },
+  "kinetic": {
+    "line1": "Things go wrong.",
+    "line2": "You're protected.",
+    "highlight": "protected."
+  },
+  "checklist": [
+    "Hotel covered",
+    "Night handled",
+    "Calm restored"
+  ]
+}

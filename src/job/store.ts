@@ -34,6 +34,7 @@ export interface Job {
     audioPlan?: string;
     voiceover?: string;
     music?: string;
+    motionSpec?: string;
     final?: string;
     qa?: string;
   };

@@ -9,8 +9,9 @@ brief.json
   → Prompt builder  storyboard → provider-specific request (length-checked before paying)
   → Video provider  fal.ai · Kling v3 Pro, multi-shot, native audio   (VideoProvider interface)
   → Sound design    Claude writes VO script + music brief; ElevenLabs TTS + ElevenLabs Music via fal (AudioProvider)
-  → Assembly        ffmpeg: 1080x1920, word-by-word animated captions, animated end card (3.5s),
-                    ambience + ducked music + voice-over, loudness-normalised to -14 LUFS
+  → Assembly        ffmpeg base edit: 1080x1920, end-card plate, ambience + ducked music + VO, -14 LUFS
+  → Motion layer    Claude "motion director" writes a MotionSpec; Remotion (React → video) renders kinetic
+                    type, an in-app notification card, checklist and an animated logo end card over the base
   → QA              technical (ffprobe) + creative (Claude vision on sampled frames)
   → FINALIZED / NEEDS_REVIEW / FAILED
 ```
@@ -27,7 +28,7 @@ Concept selected by the planner: **"POV: The 2 A.M. Gate"**. A traveler stranded
 | 2 | storyboard rewritten from render-1 QA | ❌ 15.04s → fixed in assembly → ✅ 14.9s | 6.6, re-scored 6.0 after re-edit | identity now consistent (visual consistency 6→8); garbled departure-board text, blank phone screen |
 | 3 | reviewer-approved regenerate from render-2 QA | ✅ 13.04s | 5.8 | **identity drift** in the final shot, a different-looking woman |
 
-After review, the shipped edit adds voice-over, music, animated captions and a longer end card on top of render 2 ([contact sheet](output/run/contact-sheets/final.jpg)). That was a re-edit, not a re-render.
+After review, the shipped edit adds voice-over, music, a Remotion motion-graphics layer and a longer end card on top of render 2. With the motion layer, creative QA passed the gate once (7.2) and then scored 6.6 and 6.8 on near-identical re-renders: more evidence that the judge is a ±0.5 noisy gate ([contact sheet](output/run/contact-sheets/final.jpg)). That was a re-edit, not a re-render.
 
 **Shipped: render 2** ([contact sheet](output/run/contact-sheets/render_2.jpg)). The pipeline ended in `NEEDS_REVIEW` (no render cleared the 7.0 gate), and choosing the best of N is exactly the human decision that state exists for. Render 2 has the most consistent protagonist and the most premium look; its known flaws (slightly garbled text on the out-of-focus departure board, a plain phone screen) are minor at phone size. Render 3 shows that "more QA-driven retries" is not monotonic improvement: fixing one finding introduced worse identity drift. That's the strongest argument for reference-image conditioning (see below). The 3-submission cap stopped further spend.
 
@@ -70,7 +71,10 @@ src/
   steps/storyboard.ts    Part 2
   steps/prompts.ts       storyboard → VideoRequest (model-specific prompt style lives here only)
   steps/sound.ts         voice-over script + music brief (Claude), TTS length check
-  steps/assemble.ts      ffmpeg edit: normalise, animated captions + end card (ASS/libass), audio mix
+  steps/assemble.ts      ffmpeg edit: normalise, end-card plate, audio mix (+ ASS captions fallback: --no-motion)
+  steps/motion.ts        motion director: on-screen copy as a validated MotionSpec
+  motion/Ad.tsx          Remotion composition: hook, notification card, kinetic lines, checklist, end card
+  motion/render.ts       bundle + render with headless Chrome, then mux the mixed audio back in
   steps/qa.ts            technical + creative QA
   providers/VideoProvider.ts   generate() / getStatus() / getResult()
   providers/falKling.ts        the one real provider
@@ -104,11 +108,22 @@ Model-specific prompt style is isolated in `steps/prompts.ts`.
   - An LLM judge is noisy: the **same render scored 6.6 and then 6.0** on two runs. So this is a cheap gate for obvious failures (identity drift, garbled text, a weak hook), not the final word. A human approves `NEEDS_REVIEW` jobs. Calibrating it is the first item in "what I would do next".
   - `npm run cli -- reassemble <jobId>` re-runs only the edit + QA on the existing footage (caption/end-card changes cost no render).
 
-### Sound design and motion
+### Motion graphics (Remotion)
+All readable graphics are drawn in code, never by the video model, so they're crisp and say exactly what was approved:
+- **Hook (0–3s):** "2:00 AM" clock drops in, a red stamp slams in with overshoot and a camera shake, then a huge headline rises letter by letter. All of it lands by 0.3–0.5s.
+- **Product moment:** an in-app NomadGuard notification slides in, its shield check draws on, and a status pill pops. This fixes QA's repeated complaint that the product was invisible.
+- **Kinetic lines** slide in word by word, with a teal highlight bar sweeping behind the key word (auto-fit to one line each).
+- **Checklist** of three concrete benefits ticks in, in the lower third so the face stays clear.
+- **End card:** the shield logo draws itself, the brand rises in, an accent rule grows, the headline fades in, and the CTA pops with a light sweep.
+- **Camera:** slow push-in per shot, a punch-in plus a white flash on every cut.
+- The copy comes from a **motion director** LLM step (`motion_spec.json`) with rules: word limits, no invented numbers, the card title must not repeat the brand, and no content word more than twice across all on-screen copy. That last rule caught "covered" used 7 times on its first try.
+- `--no-motion` falls back to the ffmpeg/ASS animated captions.
+
+### Sound design
 - **Voice-over:** Claude writes a script that adds to the captions rather than repeating them. It's checked for length (≤ 2.5 words/s with 1s of air) and must say the brand. ElevenLabs reads it, and the clip's duration is checked: if it runs long it's re-read once at 1.12x, otherwise the step fails rather than cutting words.
 - **Music:** an instrumental ElevenLabs Music bed, generated to the exact ad length from Claude's brief (tension → relief → warm resolve).
 - **Mix:** Kling's native ambience at 30%, music side-chain-ducked under the voice, then loudness-normalised to -14 LUFS (what Reels/TikTok target).
-- **Motion text:** captions pop in word by word (fade + 80→100% scale), key words ("covered", "sorted") in the accent colour. The end card animates: the brand rises in, an accent rule grows, the headline fades, the CTA pops. It holds for **3.5s** so it can be read; footage is trimmed to make room inside 15s.
+- **End card** holds for **3.5s** so it can be read; footage is trimmed to make room inside 15s.
 - Every output is cached (`audio_plan.json`, `voiceover.mp3`, `music.mp3`), so `reassemble` re-edits without paying for audio again.
 
 ## Key decisions and trade-offs

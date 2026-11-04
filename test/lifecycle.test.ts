@@ -9,7 +9,7 @@ import { MockAudioProvider } from "../src/providers/mockAudio.js";
 import { brief, happyLlm } from "./fixtures.js";
 
 process.env.QUIET = "1";
-const fast = { pollIntervalMs: 5, backoffBaseMs: 1, maxStepAttempts: 2 };
+const fast = { pollIntervalMs: 5, backoffBaseMs: 1, maxStepAttempts: 2, motion: false }; // Remotion render covered by the offline demo
 
 describe("job lifecycle", () => {
   it("fails with a readable error when the provider is down, and resume re-polls the SAME render instead of paying again", async () => {

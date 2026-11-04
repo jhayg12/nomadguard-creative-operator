@@ -1,0 +1,22 @@
+{
+  "hook": {
+    "kicker": "2:00 AM",
+    "stamp": "MISSED",
+    "headline": "STRANDED."
+  },
+  "product_card": {
+    "title": "Tonight is sorted",
+    "body": "Your hotel stay is taken care of.",
+    "badge": "Protected"
+  },
+  "kinetic": {
+    "line1": "Delays happen.",
+    "line2": "You're protected.",
+    "highlight": "protected."
+  },
+  "checklist": [
+    "Disruption managed",
+    "Hotel sorted",
+    "Expenses handled"
+  ]
+}

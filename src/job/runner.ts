@@ -5,12 +5,14 @@ import type { StructuredLlm } from "../llm.js";
 import { log } from "../log.js";
 import type { VideoProvider } from "../providers/VideoProvider.js";
 import type { AudioProvider } from "../providers/AudioProvider.js";
-import { END_CARD_SECONDS, type AudioPlan, type CreativeScores, type Storyboard, type Strategy } from "../schemas.js";
+import { END_CARD_SECONDS, type AudioPlan, type CreativeScores, type MotionSpec, type Storyboard, type Strategy } from "../schemas.js";
 import { assemble } from "../steps/assemble.js";
 import { buildVideoRequest } from "../steps/prompts.js";
 import { creativePass, creativeQA, extractFrames, sampleTimes, technicalQA } from "../steps/qa.js";
 import { buildStoryboard } from "../steps/storyboard.js";
 import { planStrategy } from "../steps/strategy.js";
+import { planMotion } from "../steps/motion.js";
+import { renderMotion } from "../motion/render.js";
 import { VO_START_SECONDS, download, durationOf, planAudio, synthesizeVoiceover } from "../steps/sound.js";
 import { TERMINAL, type Job, type JobStatus, type JobStore } from "./store.js";
 
@@ -31,6 +33,8 @@ export interface RunnerOptions {
   pollIntervalMs: number;
   generationTimeoutMs: number;
   creativeQA: boolean;
+  /** code-rendered motion graphics (Remotion) instead of plain burned-in captions */
+  motion: boolean;
   backoffBaseMs: number;
   /** Stop (without failing) when the job reaches this status, e.g. review the storyboard before paying for a render. */
   stopAt?: JobStatus;
@@ -43,6 +47,7 @@ const DEFAULTS: RunnerOptions = {
   pollIntervalMs: 10_000,
   generationTimeoutMs: 20 * 60_000,
   creativeQA: true,
+  motion: true,
   backoffBaseMs: 2_000,
 };
 
@@ -202,15 +207,38 @@ async function runStep(job: Job, deps: RunnerDeps, o: RunnerOptions): Promise<Jo
 
     case "ASSEMBLING": {
       const sb = await store.readJson<Storyboard>(job, job.outputs.storyboard!);
-      await assemble({
+      const common = {
         input: join(dir, job.outputs.generated!),
-        output: join(dir, "final.mp4"),
         storyboard: sb,
         brief: job.brief,
         maxSeconds: job.brief.format.max_seconds,
         voiceover: job.outputs.voiceover ? join(dir, job.outputs.voiceover) : undefined,
         music: job.outputs.music ? join(dir, job.outputs.music) : undefined,
-      });
+      };
+      if (!o.motion) {
+        await assemble({ ...common, output: join(dir, "final.mp4") });
+      } else {
+        // 1) base edit without text, 2) motion director writes the on-screen copy, 3) Remotion draws it.
+        const base = await assemble({ ...common, output: join(dir, "base.mp4"), textOverlay: false });
+        if (!job.outputs.motionSpec) {
+          const audioPlan = job.outputs.audioPlan ? await store.readJson<AudioPlan>(job, job.outputs.audioPlan) : undefined;
+          job.outputs.motionSpec = await store.writeJson(job, "motion_spec.json", await planMotion(llm, job.brief, sb, audioPlan));
+          await store.save(job);
+        }
+        const spec = await store.readJson<MotionSpec>(job, job.outputs.motionSpec);
+        const planned = sb.scenes.reduce((t, s) => t + s.duration, 0);
+        const k = base.rendered / planned;
+        let t = 0;
+        const scenes = sb.scenes
+          .map((s) => ({ start: (t += s.duration) - s.duration, end: t }))
+          .map((s) => ({ start: s.start * k, end: Math.min(s.end * k, base.cut) }))
+          .filter((s) => s.start < base.cut - 0.3);
+        await renderMotion({
+          base: base.output,
+          output: join(dir, "final.mp4"),
+          props: { brand: job.brief.brand, endHeadline: sb.end_card.headline, cta: sb.end_card.cta, spec, scenes, cut: base.cut, total: base.duration },
+        });
+      }
       job.outputs.final = "final.mp4";
       await store.save(job);
       return "EVALUATING";

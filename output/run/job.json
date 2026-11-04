@@ -3,7 +3,7 @@
   "status": "NEEDS_REVIEW",
   "provider": "fal",
   "createdAt": "2026-11-04T01:45:27.650Z",
-  "updatedAt": "2026-11-04T03:36:13.485Z",
+  "updatedAt": "2026-11-04T04:18:19.049Z",
   "brief": {
     "brand": "NomadGuard",
     "product": "Travel-protection service for frequent travelers: covers flight delays, cancellations and travel disruptions.",
@@ -37,10 +37,11 @@
     "videoRequest": "video_request_3.json",
     "generated": "generated_2.mp4",
     "qa": "qa_3.json",
-    "final": "final.mp4",
     "audioPlan": "audio_plan.json",
     "voiceover": "voiceover.mp3",
-    "music": "music.mp3"
+    "music": "music.mp3",
+    "final": "final.mp4",
+    "motionSpec": "motion_spec.json"
   },
   "generation": {
     "submissions": 3,
@@ -199,6 +200,84 @@
     {
       "status": "NEEDS_REVIEW",
       "at": "2026-11-04T03:36:13.485Z"
+    },
+    {
+      "status": "SCORING",
+      "at": "2026-11-04T04:08:06.595Z",
+      "note": "reassemble"
+    },
+    {
+      "status": "ASSEMBLING",
+      "at": "2026-11-04T04:08:06.640Z"
+    },
+    {
+      "status": "FAILED",
+      "at": "2026-11-04T04:08:37.309Z",
+      "note": "motion render failed: Module not found: Error: Can't resolve './Root.js' in '/home/jhayg12/nomadguard-creative-operator/src/motion'\nresolve './Root.js' in '/home/jhayg12/nomadguard-creative-operator/src/motion'\n  using description file: /home/jhayg12/nomadguard-creative-operator/package.json (relative path: ./src/motion)\n    Field 'browser' doesn't contain a valid alias configuration\n    using description file: /home/jhayg12/nomadguard-creative-operator/package.json (relative path: ./src/motion/Root.js)\n      no extension\n        Field 'browser' doesn't contain a valid alias configuration\n        /home/jhayg12/nomadguard-creative-operator/src/motion/Root.js doesn't exist\n      .ts\n        Field 'browser' doesn't contain a valid alias configuration\n        /home/jhayg12/nomadguard-creative-operator/src/motion/Root.js.ts doesn't exist\n      .tsx\n        Field 'browser' doesn't contain a valid alias configuration\n        /home/jhayg12/nomadguard-creative-operator/src/motion/Root.js.tsx doesn't exist\n      .web.js\n        Field 'browser' doesn't contain a valid alias configuration\n        /home/jhayg12/nomadguard-creative-operator/src/motion/Root.js.web.js doesn't exist\n      .js\n        Field 'browser' doesn't contain a valid alias configuration\n        /home/jhayg12/nomadguard-creative-operator/src/motion/Root.js.js doesn't exist\n      .jsx\n        Field 'browser' doesn't contain a valid alias configuration\n        /home/jhayg12/nomadguard-creative-operator/src/motion/Root.js.jsx doesn't exist\n      .mjs\n        Field 'browser' doesn't contain a valid alias configuration\n        /home/jhayg12/nomadguard-creative-operator/src/motion/Root.js.mjs doesn't exist\n      .cjs\n        Field 'browser' doesn't contain a valid alias configuration\n        /home/jhayg12/nomadguard-creative-operator/src/motion/Root.js.cjs doesn't exist\n      as directory\n        /home/jhayg12/nomadguard-creative-operator/src/motion/Root.js doesn't exist"
+    },
+    {
+      "status": "ASSEMBLING",
+      "at": "2026-11-04T04:08:45.319Z",
+      "note": "resume"
+    },
+    {
+      "status": "EVALUATING",
+      "at": "2026-11-04T04:10:13.722Z"
+    },
+    {
+      "status": "FINALIZED",
+      "at": "2026-11-04T04:10:37.147Z"
+    },
+    {
+      "status": "SCORING",
+      "at": "2026-11-04T04:11:08.733Z",
+      "note": "reassemble"
+    },
+    {
+      "status": "ASSEMBLING",
+      "at": "2026-11-04T04:11:08.777Z"
+    },
+    {
+      "status": "EVALUATING",
+      "at": "2026-11-04T04:12:22.655Z"
+    },
+    {
+      "status": "FINALIZED",
+      "at": "2026-11-04T04:12:46.390Z"
+    },
+    {
+      "status": "SCORING",
+      "at": "2026-11-04T04:13:21.067Z",
+      "note": "reassemble"
+    },
+    {
+      "status": "ASSEMBLING",
+      "at": "2026-11-04T04:13:21.130Z"
+    },
+    {
+      "status": "EVALUATING",
+      "at": "2026-11-04T04:14:32.860Z"
+    },
+    {
+      "status": "NEEDS_REVIEW",
+      "at": "2026-11-04T04:14:58.014Z"
+    },
+    {
+      "status": "SCORING",
+      "at": "2026-11-04T04:16:26.742Z",
+      "note": "reassemble"
+    },
+    {
+      "status": "ASSEMBLING",
+      "at": "2026-11-04T04:16:26.788Z"
+    },
+    {
+      "status": "EVALUATING",
+      "at": "2026-11-04T04:17:54.256Z"
+    },
+    {
+      "status": "NEEDS_REVIEW",
+      "at": "2026-11-04T04:18:19.049Z"
     }
   ]
 }
