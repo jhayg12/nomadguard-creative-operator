@@ -35,11 +35,26 @@ After review, the shipped edit adds voice-over, music, a Remotion motion-graphic
 ## Setup
 
 Requires Node 20+. ffmpeg/ffprobe come from npm (`ffmpeg-static`, `ffprobe-static`), so you don't need a system install.
+Remotion downloads its own headless Chrome (~100 MB) on the first motion render.
 
 ```bash
 npm install
-cp .env.example .env      # ANTHROPIC_API_KEY, FAL_KEY
+cp .env.example .env      # ANTHROPIC_API_KEY, FAL_KEY (that's all: ElevenLabs is called through fal)
+npm run demo:offline      # no keys needed: proves the whole pipeline end to end with mocks
 ```
+
+### Providers used
+| Purpose | Provider / model | Key | Approx. cost per full run |
+|---|---|---|---|
+| Strategy, storyboard, VO script, motion copy, creative QA | Anthropic Claude Opus 5.5 | `ANTHROPIC_API_KEY` | ~$0.30 |
+| Video | Kling v3 Pro (multi-shot, native audio) via fal.ai | `FAL_KEY` | ~$2 per 12s render |
+| Voice-over | ElevenLabs TTS multilingual v2 via fal.ai | `FAL_KEY` | cents |
+| Music | ElevenLabs Music via fal.ai | `FAL_KEY` | cents |
+| Editing / QA / motion | ffmpeg, ffprobe, Remotion (local) | none | free* |
+
+\*Remotion is free for individuals and companies of up to 3 people; larger companies need a Remotion company license.
+
+**Reproducibility:** generative models are not deterministic, so a fresh `npm start` produces a different concept and a different video every time. That's expected. Every artifact of the shipped run is kept in `output/run/` (strategy, storyboards, exact provider requests, VO/music, motion spec, QA reports, logs). Two human decisions in that run are recorded in `job.json` history: choosing render 2 out of 3, and re-editing it after review.
 
 ## Run
 
@@ -137,6 +152,7 @@ All readable graphics are drawn in code, never by the video model, so they're cr
 | **Claude Opus 5.5 with structured outputs + business-rule repair loop** | The JSON schema guarantees shape; rules like "durations total 9-13s" or "hook ≤3s" are checked in code and the exact error is fed back. | Extra latency on a bad first answer (bounded at 3 attempts). |
 | **`--plan-only` checkpoint** | Review the creative before spending money on a render. Product judgment: renders are the expensive step. | One more command. |
 | **JSON files, not a DB or queue** | 4-hour scope; `job.json` gives inspectable state, resume and history with zero infra. | Single process, no concurrency control. In production: Postgres rows + a durable step runner (e.g. Inngest) with webhooks instead of polling. |
+| **Remotion for motion graphics** | Kinetic type, a product UI card and an animated logo are far easier and crisper as React than as ffmpeg filters, and no generated text is ever needed. | ~100 MB headless Chrome + 30–60s render; Remotion licence needed for larger companies. ffmpeg captions remain as `--no-motion`. |
 | **CLI, no UI** | The brief asked for a minimal interface; time went to the video and reliability. | No visual brief editor. `brief.json` is the editable brief. |
 
 ## Tests (`npm test`)
