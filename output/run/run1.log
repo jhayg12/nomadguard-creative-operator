@@ -1,0 +1,44 @@
+
+> nomadguard-creative-operator@1.0.0 cli
+> tsx src/cli.ts resume 20261104014527-0e7f2c
+
+{"t":"2026-11-04T01:46:18.089Z","level":"info","msg":"video submitted","data":{"id":"20261104014527-0e7f2c","provider":"fal-kling-v3-pro","requestId":"01a1a43c-4cc4-7341-bc23-771ac3c4abb4","submission":1}}
+{"t":"2026-11-04T01:46:18.281Z","level":"info","msg":"provider status","data":{"id":"20261104014527-0e7f2c","state":"QUEUED","detail":"queue position 0"}}
+{"t":"2026-11-04T01:46:28.893Z","level":"info","msg":"provider status","data":{"id":"20261104014527-0e7f2c","state":"RUNNING"}}
+{"t":"2026-11-04T01:49:38.376Z","level":"info","msg":"provider status","data":{"id":"20261104014527-0e7f2c","state":"COMPLETED"}}
+{"t":"2026-11-04T01:49:40.605Z","level":"info","msg":"status","data":{"id":"20261104014527-0e7f2c","status":"ASSEMBLING"}}
+{"t":"2026-11-04T01:49:47.491Z","level":"info","msg":"status","data":{"id":"20261104014527-0e7f2c","status":"EVALUATING"}}
+{"t":"2026-11-04T01:50:16.124Z","level":"info","msg":"llm:creative-qa","data":{"model":"claude-opus-5-5","ms":27416,"in":5708,"out":1758,"stop":"end_turn"}}
+{"t":"2026-11-04T01:50:16.132Z","level":"warn","msg":"creative QA below threshold, regenerating","data":{"id":"20261104014527-0e7f2c","average":6.2,"notes":"Hook: open on a medium-close shot at a deserted airport gate at night, with a departure board showing 'CANCELLED' in red soft-focus behind her and a black carry-on beside her knee. She lowers the phone from her ear and exhales. Lock character identity across all shots: same woman, long straight dark hair past the shoulders, gold hoops, cream chunky ribbed crewneck sweater, dark trousers, white sneakers (no heels). Scene 2: include an over-shoulder insert of the phone screen showing a clean NomadGuard app card reading 'Hotel booked · Covered' with a check mark. Scene 3: keep the chunky knit sweater visible from behind. Scene 4: use the same face and hair as the reference (hair tied back is fine), and avoid duplicate reflections in the window. Text: increase caption size and weight and add a subtle shadow or pill background. End card: add the NomadGuard logo mark and an explicit CTA such as 'Get covered in 2 minutes'."}}
+{"t":"2026-11-04T01:50:16.132Z","level":"info","msg":"status","data":{"id":"20261104014527-0e7f2c","status":"GENERATING"}}
+{"t":"2026-11-04T01:50:16.705Z","level":"info","msg":"video submitted","data":{"id":"20261104014527-0e7f2c","provider":"fal-kling-v3-pro","requestId":"01a1a43f-f0d4-7443-9549-9f0c1450ad72","submission":2}}
+{"t":"2026-11-04T01:50:17.470Z","level":"warn","msg":"step error","data":{"id":"20261104014527-0e7f2c","step":"GENERATING","attempt":1,"retryable":false,"message":"fal result: Unprocessable Entity (HTTP 422)"}}
+{"t":"2026-11-04T01:50:17.471Z","level":"info","msg":"status","data":{"id":"20261104014527-0e7f2c","status":"FAILED","note":"fal result: Unprocessable Entity (HTTP 422)"}}
+{
+  "id": "20261104014527-0e7f2c",
+  "status": "FAILED",
+  "provider": "fal",
+  "outputs": {
+    "strategy": "strategy.json",
+    "storyboard": "storyboard.json",
+    "videoRequest": "video_request_2.json",
+    "qa": "qa_1.json"
+  },
+  "generation": {
+    "submissions": 2,
+    "regenerations": 1,
+    "requestId": "01a1a43f-f0d4-7443-9549-9f0c1450ad72",
+    "lastProviderState": "COMPLETED",
+    "qaNotes": "Hook: open on a medium-close shot at a deserted airport gate at night, with a departure board showing 'CANCELLED' in red soft-focus behind her and a black carry-on beside her knee. She lowers the phone from her ear and exhales. Lock character identity across all shots: same woman, long straight dark hair past the shoulders, gold hoops, cream chunky ribbed crewneck sweater, dark trousers, white sneakers (no heels). Scene 2: include an over-shoulder insert of the phone screen showing a clean NomadGuard app card reading 'Hotel booked · Covered' with a check mark. Scene 3: keep the chunky knit sweater visible from behind. Scene 4: use the same face and hair as the reference (hair tied back is fine), and avoid duplicate reflections in the window. Text: increase caption size and weight and add a subtle shadow or pill background. End card: add the NomadGuard logo mark and an explicit CTA such as 'Get covered in 2 minutes'."
+  },
+  "error": {
+    "step": "GENERATING",
+    "message": "fal result: Unprocessable Entity (HTTP 422)",
+    "retryable": false,
+    "at": "2026-11-04T01:50:17.470Z"
+  },
+  "dir": "runs/20261104014527-0e7f2c"
+}
+
+Job failed at GENERATING: fal result: Unprocessable Entity (HTTP 422)
+Fix the cause, then: npm run cli -- resume 20261104014527-0e7f2c

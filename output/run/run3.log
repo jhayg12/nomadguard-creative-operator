@@ -1,0 +1,34 @@
+
+> nomadguard-creative-operator@1.0.0 cli
+> tsx src/cli.ts regenerate 20261104014527-0e7f2c
+
+{"t":"2026-11-04T02:01:47.599Z","level":"info","msg":"llm:storyboard","data":{"model":"claude-opus-5-5","ms":30128,"in":2779,"out":3106,"stop":"end_turn"}}
+{"t":"2026-11-04T02:01:47.601Z","level":"info","msg":"status","data":{"id":"20261104014527-0e7f2c","status":"GENERATING"}}
+{"t":"2026-11-04T02:01:48.191Z","level":"info","msg":"video submitted","data":{"id":"20261104014527-0e7f2c","provider":"fal-kling-v3-pro","requestId":"01a1a44a-7e39-7393-9b6f-768acbcfd226","submission":3}}
+{"t":"2026-11-04T02:01:48.385Z","level":"info","msg":"provider status","data":{"id":"20261104014527-0e7f2c","state":"RUNNING"}}
+{"t":"2026-11-04T02:04:36.780Z","level":"info","msg":"provider status","data":{"id":"20261104014527-0e7f2c","state":"COMPLETED"}}
+{"t":"2026-11-04T02:04:40.559Z","level":"info","msg":"status","data":{"id":"20261104014527-0e7f2c","status":"ASSEMBLING"}}
+{"t":"2026-11-04T02:04:47.080Z","level":"info","msg":"status","data":{"id":"20261104014527-0e7f2c","status":"EVALUATING"}}
+{"t":"2026-11-04T02:05:14.655Z","level":"info","msg":"llm:creative-qa","data":{"model":"claude-opus-5-5","ms":26279,"in":5869,"out":1873,"stop":"end_turn"}}
+{"t":"2026-11-04T02:05:14.658Z","level":"info","msg":"status","data":{"id":"20261104014527-0e7f2c","status":"NEEDS_REVIEW"}}
+{
+  "id": "20261104014527-0e7f2c",
+  "status": "NEEDS_REVIEW",
+  "provider": "fal",
+  "outputs": {
+    "strategy": "strategy.json",
+    "storyboard": "storyboard_3.json",
+    "videoRequest": "video_request_3.json",
+    "generated": "generated_3.mp4",
+    "final": "final.mp4",
+    "qa": "qa_3.json"
+  },
+  "generation": {
+    "submissions": 3,
+    "regenerations": 2,
+    "lastProviderState": "COMPLETED",
+    "qaNotes": "- Departure board text is semi-legible garbled AI text rather than fully blurred\n- Scene 2 phone screen is blown-out blank white with stray UI specks, so it looks unfinished or cheap\n- No relieved smile in scene 2; her face is not visible, so the emotional turn is carried only by text\n- Hotel shot lacks the calm smile, and the window is in frame (against the storyboard)\n- Slight facial drift between hook frames and the hotel shot\n- End card background is dark and muddy, undercutting the premium feel\n- Brand or product never appears before the end card\nHook: open tighter (medium close-up). She lowers the phone with a visibly tired exhale. Render the departure board as heavy bokeh with only red glow and no glyphs (add 'no readable text, extreme defocus' to the prompt). Scene 2: frame from the over-shoulder angle at a slight profile so her cheek and smile are visible. Give the phone screen a soft, dim, warm-tinted defocused glow, not pure white, or composite a simple branded NomadGuard confirmation UI in post. Scene 4: add 'gentle closed-mouth smile after sipping', keep the window glass out of frame, and lock the face with the hook reference image. End card: use a lighter, warmer blurred plate from the sunlit hotel shot instead of a dark grey one. Consider a small NomadGuard logo bug from scene 2 onward."
+  },
+  "dir": "runs/20261104014527-0e7f2c"
+}
+EXIT 0

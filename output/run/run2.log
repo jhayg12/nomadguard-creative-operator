@@ -1,0 +1,57 @@
+
+> nomadguard-creative-operator@1.0.0 cli
+> tsx src/cli.ts resume 20261104014527-0e7f2c
+
+{"t":"2026-11-04T01:51:41.875Z","level":"info","msg":"resuming failed job","data":{"id":"20261104014527-0e7f2c","from":"STORYBOARDING"}}
+{"t":"2026-11-04T01:51:41.876Z","level":"info","msg":"status","data":{"id":"20261104014527-0e7f2c","status":"STORYBOARDING","note":"resume"}}
+{"t":"2026-11-04T01:52:15.346Z","level":"info","msg":"llm:storyboard","data":{"model":"claude-opus-5-5","ms":33469,"in":2846,"out":3208,"stop":"end_turn"}}
+{"t":"2026-11-04T01:52:15.351Z","level":"info","msg":"status","data":{"id":"20261104014527-0e7f2c","status":"GENERATING"}}
+{"t":"2026-11-04T01:52:15.931Z","level":"info","msg":"video submitted","data":{"id":"20261104014527-0e7f2c","provider":"fal-kling-v3-pro","requestId":"01a1a441-c29b-7c00-aba0-574e58abfb61","submission":2}}
+{"t":"2026-11-04T01:52:16.118Z","level":"info","msg":"provider status","data":{"id":"20261104014527-0e7f2c","state":"RUNNING"}}
+{"t":"2026-11-04T01:55:25.527Z","level":"info","msg":"provider status","data":{"id":"20261104014527-0e7f2c","state":"COMPLETED"}}
+{"t":"2026-11-04T01:55:28.642Z","level":"info","msg":"status","data":{"id":"20261104014527-0e7f2c","status":"ASSEMBLING"}}
+{"t":"2026-11-04T01:55:37.299Z","level":"info","msg":"status","data":{"id":"20261104014527-0e7f2c","status":"EVALUATING"}}
+{"t":"2026-11-04T01:55:38.141Z","level":"warn","msg":"step error","data":{"id":"20261104014527-0e7f2c","step":"EVALUATING","attempt":1,"retryable":false,"message":"technical QA failed: duration 15.04s is outside 10-15s"}}
+{"t":"2026-11-04T01:55:38.142Z","level":"info","msg":"status","data":{"id":"20261104014527-0e7f2c","status":"FAILED","note":"technical QA failed: duration 15.04s is outside 10-15s"}}
+{
+  "id": "20261104014527-0e7f2c",
+  "status": "FAILED",
+  "provider": "fal",
+  "outputs": {
+    "strategy": "strategy.json",
+    "videoRequest": "video_request_2.json",
+    "qa": "qa_2.json",
+    "storyboard": "storyboard_2.json",
+    "generated": "generated_2.mp4",
+    "final": "final.mp4"
+  },
+  "generation": {
+    "submissions": 2,
+    "regenerations": 1,
+    "lastProviderState": "COMPLETED",
+    "qaNotes": "- No airport/gate or carry-on visible in the hook; 'stranded' context is text-only\n- Hair length and style drift between hook and scene 2\n- Wardrobe changes from chunky knit sweater to thin blouse with heels in the concourse shot\n- Face in the hotel robe scene looks like a slightly different person\n- Phone screen never shows the NomadGuard app, so the product role is unclear\n- Ghost duplicate mug reflection in the window in scene 4\n- Captions small and thin with weak contrast over the light sweater\n- End card lacks a logo; the CTA box looks like a button but has no clear action\nHook: open on a medium-close shot at a deserted airport gate at night, with a departure board showing 'CANCELLED' in red soft-focus behind her and a black carry-on beside her knee. She lowers the phone from her ear and exhales. Lock character identity across all shots: same woman, long straight dark hair past the shoulders, gold hoops, cream chunky ribbed crewneck sweater, dark trousers, white sneakers (no heels). Scene 2: include an over-shoulder insert of the phone screen showing a clean NomadGuard app card reading 'Hotel booked · Covered' with a check mark. Scene 3: keep the chunky knit sweater visible from behind. Scene 4: use the same face and hair as the reference (hair tied back is fine), and avoid duplicate reflections in the window. Text: increase caption size and weight and add a subtle shadow or pill background. End card: add the NomadGuard logo mark and an explicit CTA such as 'Get covered in 2 minutes'."
+  },
+  "error": {
+    "step": "EVALUATING",
+    "message": "technical QA failed: duration 15.04s is outside 10-15s",
+    "retryable": false,
+    "at": "2026-11-04T01:55:38.141Z",
+    "details": {
+      "exists": true,
+      "playable": true,
+      "duration": 15.04,
+      "resolution": "1080x1920",
+      "aspect_ratio": "9:16",
+      "has_audio": true,
+      "valid": false,
+      "errors": [
+        "duration 15.04s is outside 10-15s"
+      ]
+    }
+  },
+  "dir": "runs/20261104014527-0e7f2c"
+}
+
+Job failed at EVALUATING: technical QA failed: duration 15.04s is outside 10-15s
+Fix the cause, then: npm run cli -- resume 20261104014527-0e7f2c
+EXIT 1
